@@ -268,7 +268,7 @@ This push positive charges behind leaving -ve charges  ,It leads to accumulati
 
 # STRONG INVERSION AND THRESOLD VOLTAGE
 
-**Depletion region ** is formed when you apply reverse bias in a pn junction diode. This means that when a positive voltage is applied to the gate , the majority carriers in this region are depleted. 
+**Depletion region** is formed when you apply reverse bias in a pn junction diode. This means that when a positive voltage is applied to the gate , the majority carriers in this region are depleted. 
 
 In the same fashion, the p‑substrate in a MOS structure also gets depleted of its majority carriers.
 
@@ -306,7 +306,7 @@ This leads to an increase in the effective channel (inversion layer) conductivit
 
 ## Cut‑off Region Operation
 
-When the gate‑to‑source voltage is below the threshold voltage, no strong inversion  layer (n‑channel) is formed between source and drain. In this case, the MOSFET operates in the cut‑off region, and ideally, no drain current flows.
+When the gate‑to‑source voltage is below the threshold voltage, no strong inversion layer (n‑channel) is formed between source and drain. In this case, the MOSFET operates in the cut‑off region, and ideally, no drain current flows.
 
 ## Importance of the Body Terminal
 
@@ -327,6 +327,7 @@ Here, the source and body (substrate) are at the same potential, so the source�
 In this scenario, a positive potential is applied to the source and a more negative potential is applied to the body, so the source‑to‑body voltage VSB is a positive value (source is at a higher potential than the body).
 
 **1st Observation**
+
 The depletion region on the side where the body is connected becomes wider compared to Scenario 1, due to the additional reverse bias across the source‑body junction. There is no significant change in the depletion region on the other side.
 
 
@@ -335,11 +336,64 @@ The depletion region on the side where the body is connected becomes wider compa
 Because of this additional reverse bias, the onset of inversion at the surface is slightly delayed. In other words, a higher gate‑to‑source voltage is now required to reach strong inversion. This means the threshold voltage increases when VSB is positive.
   
 ----
+
+# LECTURE 4
+
+# Threshold voltage with positive substrate potential
+
+## WHAT happens after application of gate to source voltage 
+
+<img width="672" height="387" alt="Screenshot 2026-02-25 at 4 19 11 PM" src="https://github.com/user-attachments/assets/f884ceb0-ea30-48b2-95cb-0df77b7b196c" />
+
+When gate-to-source voltage is applied, the depletion width increases in both cases.
+
+In the positive VSB case, the body connection attracts negatively charged particles. This attraction reduces the tendency for surface inversion at first. So, surface inversion is delayed when VSB is positive.
+
+<img width="665" height="399" alt="Screenshot 2026-02-25 at 4 22 52 PM" src="https://github.com/user-attachments/assets/4f2fb367-d0e8-497c-9040-d0683d7ac71e" />
+
+**In the zero body-bias case (VSB = 0)**, surface inversion happens earlier. The voltage at which surface inversion starts in this case is called VTO.
+
+ <img width="306" height="352" alt="Screenshot 2026-02-25 at 4 26 26 PM" src="https://github.com/user-attachments/assets/6c5bd968-3b84-40d0-ae2d-7d38c22d9f6e" />
+
+**In the positive VSB case**, this early surface inversion does not occur. We need an additional voltage, call it V1, on the gate to achieve surface inversion. So the new threshold voltage becomes VTO + V1.
+
+ <img width="400" height="418" alt="Screenshot 2026-02-25 at 4 26 49 PM" src="https://github.com/user-attachments/assets/86979484-5558-4e94-851f-a86d660e4156" />
+
+
+**Conclusion:** With positive source-to-body voltage (VSB > 0), the threshold voltage increases. This effect is called the body effect (or substrate bias effect). 
+
+<img width="526" height="57" alt="Screenshot 2026-02-25 at 4 30 36 PM" src="https://github.com/user-attachments/assets/aa9ef5bf-0d3d-420f-a6aa-6764105bb75d" />
+
+---
+
+## Threshold voltage equation with body effect
+
+**VT = VTO + γ ( √(2ϕF + VSB) − √(2ϕF) )**
  
- 
+Where: 
+VT  is the threshold voltage with body bias.
+VTO is the threshold voltage when VSB = 0.
+γ   is the body effect coefficient. ϕF  is the Fermi potential.
+VSB is the source-to-body voltage.
+
+<img width="373" height="162" alt="Screenshot 2026-02-25 at 4 34 43 PM" src="https://github.com/user-attachments/assets/d72e67cc-985d-42c3-a0cc-babeaf9e2b07" />
+
+These parameters depend on the technology and process. If VSB = 0, then VT = VTO. 
+If VSB is not zero, 
+we need extra gate voltage to reach surface inversion. 
+
+<img width="219" height="26" alt="Screenshot 2026-02-25 at 4 33 47 PM" src="https://github.com/user-attachments/assets/8aa4a7eb-21b8-4482-b343-9e114aedd3b8" />
+
+### Body effect coefficient (γ):
+
+**γ** depends on device and process parameters like oxide thickness and substrate doping. γ controls how strongly VT changes with VSB.
 
 
+<img width="302" height="219" alt="Screenshot 2026-02-25 at 4 38 11 PM" src="https://github.com/user-attachments/assets/ce617af7-70d9-45d8-9c9e-f70e2842cad0" />
 
+Once VTO, γ, and ϕF are given, a SPICE tool calculates VT for any VSB. 
 
+That VT value represents the effective threshold voltage of the device under body bias
 
+---
 
