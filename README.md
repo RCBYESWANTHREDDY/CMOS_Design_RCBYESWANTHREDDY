@@ -266,8 +266,75 @@ This push positive charges behind leaving -ve charges  ,It leads to accumulati
 
 # LECTURE 3
 
-  
+# STRONG INVERSION AND THRESOLD VOLTAGE
 
+**Depletion region ** is formed when you apply reverse bias in a pn junction diode. This means that when a positive voltage is applied to the gate , the majority carriers in this region are depleted. 
+
+In the same fashion, the p‑substrate in a MOS structure also gets depleted of its majority carriers.
+
+<img width="596" height="388" alt="Screenshot 2026-02-25 at 2 40 08 PM" src="https://github.com/user-attachments/assets/6acfde52-5fb1-4a8d-a6ca-3d40af3527e1" />
+
+
+## STRONG INVERSION
+
+When we increase the gate voltage to a certain level, we observe the following phenomena:
+
+1. As gate voltage increases and becomes more positive, more positive charges are repelled (i.e., more majority carriers are pushed away), leading to an increase in the depletion region width.
+
+2. Continuing to increase the gate voltage, we reach a point where the surface region effectively inverts to behave as an n‑type material. This is called **surface inversion or strong inversion**.
+
+<img width="460" height="387" alt="Screenshot 2026-02-25 at 2 44 24 PM" src="https://github.com/user-attachments/assets/372df757-2633-4771-aff8-9e5b68efc67e" />
+
+## THRESHOLD VOLTAGE
+
+The gate‑to‑source voltage (VGS) required to achieve this inversion is called the **threshold voltage**.
+
+If we increase the gate voltage even further, the electric field tends to attract negative charges (electrons) or repel positive ions, but the region is already depleted of those majority carriers. 
+
+As a result, it attracts electrons from the n+ heavily doped regions (source and drain).
+
+<img width="398" height="265" alt="Screenshot 2026-02-25 at 3 00 05 PM" src="https://github.com/user-attachments/assets/8aad148a-06a5-4884-a91a-9b74b4500392" />
+
+This leads to an increase in the effective channel (inversion layer) conductivity, but there is little to no further change in the depletion layer width. This process leads to the formation of an n‑channel from source to drain.
+
+
+<img width="389" height="284" alt="Screenshot 2026-02-25 at 3 00 24 PM" src="https://github.com/user-attachments/assets/299f0d35-9ee8-4af3-9ed5-0b6268de6dc4" />
+
+
+<img width="450" height="98" alt="Screenshot 2026-02-25 at 3 00 48 PM" src="https://github.com/user-attachments/assets/52d01d2f-5a1b-4a73-9a39-ee188258578e" />
+
+
+## Cut‑off Region Operation
+
+When the gate‑to‑source voltage is below the threshold voltage, no strong inversion  layer (n‑channel) is formed between source and drain. In this case, the MOSFET operates in the cut‑off region, and ideally, no drain current flows.
+
+## Importance of the Body Terminal
+
+The body (or substrate) terminal plays an important role in the device operation, especially through the body effect, which influences the threshold voltage.
+
+**Scenario 1: VSB = 0**
+
+<img width="315" height="335" alt="Screenshot 2026-02-25 at 2 55 43 PM" src="https://github.com/user-attachments/assets/1ed76e14-7dd6-4c79-9163-303b9b0f660c" />
+
+Here, the source and body (substrate) are at the same potential, so the source‑to‑body voltage VSB is zero. The depletion region is determined only by the gate voltage and the built‑in potential of the junction.
+
+
+
+**Scenario 2: VSB > 0**
+
+<img width="389" height="284" alt="Screenshot 2026-02-25 at 3 00 24 PM" src="https://github.com/user-attachments/assets/db82f2ab-9224-464e-9715-14adda1dba82" />
+
+In this scenario, a positive potential is applied to the source and a more negative potential is applied to the body, so the source‑to‑body voltage VSB is a positive value (source is at a higher potential than the body).
+
+**1st Observation**
+The depletion region on the side where the body is connected becomes wider compared to Scenario 1, due to the additional reverse bias across the source‑body junction. There is no significant change in the depletion region on the other side.
+
+
+**2nd Observation**
+
+Because of this additional reverse bias, the onset of inversion at the surface is slightly delayed. In other words, a higher gate‑to‑source voltage is now required to reach strong inversion. This means the threshold voltage increases when VSB is positive.
+  
+----
  
  
 
