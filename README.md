@@ -396,4 +396,58 @@ Once VTO, γ, and ϕF are given, a SPICE tool calculates VT for any VSB.
 That VT value represents the effective threshold voltage of the device under body bias
 
 ---
+# Day 1 PART 2 Lecture 1
 
+# Resistive region of operation with small drain-source voltage
+
+There are 3 modes of operations 
+1. cuttoff mode
+
+2 .Resistive mode 
+
+3 .saturation mode
+
+## Resistive mode of operation
+
+
+If Vgs is increased there will be more charge carriers in the channel and more conducting area between source and drain 
+
+<img width="366" height="254" alt="Screenshot 2026-02-26 at 2 55 02 PM" src="https://github.com/user-attachments/assets/0d97143b-6f81-42fc-8d35-11a47fe7714e" />
+
+  <img width="363" height="267" alt="Screenshot 2026-02-26 at 2 55 41 PM" src="https://github.com/user-attachments/assets/5232b524-ea75-4afc-9cfb-6304f3f4a405" />
+
+  <img width="367" height="304" alt="Screenshot 2026-02-26 at 2 56 33 PM" src="https://github.com/user-attachments/assets/deed57e9-56b2-4c31-819f-c04665ba2380" />
+
+From the above three images if we increase vgs channel width increases more is due to induced charges due to gate voltage is proportional to gate voltage 
+
+<img width="212" height="28" alt="Screenshot 2026-02-26 at 2 59 04 PM" src="https://github.com/user-attachments/assets/c1a71960-fdfe-4319-ba81-128ee696e716" />
+
+
+# Analyze at vgs = 1 v
+
+<img width="386" height="311" alt="Screenshot 2026-02-26 at 3 01 47 PM" src="https://github.com/user-attachments/assets/b7b7a141-c4c7-490a-ae87-fb9ccdec899e" />
+
+Vgs > Vt, the transsistor is turned on
+
+<img width="261" height="311" alt="Screenshot 2026-02-26 at 3 03 34 PM" src="https://github.com/user-attachments/assets/1a25f3a5-55bb-4210-a2d7-4758fe4561d9" />
+
+we have voltage gradient because of application of vds before it was constant
+
+<img width="411" height="294" alt="Screenshot 2026-02-26 at 3 06 37 PM" src="https://github.com/user-attachments/assets/a8299db4-e3b0-421b-8aeb-ccbc5413dbd3" />
+
+**Effective channel length** is much less than expected because of fabrication techniques
+
+## voltage across channel length
+
+<img width="276" height="303" alt="Screenshot 2026-02-26 at 3 11 45 PM" src="https://github.com/user-attachments/assets/23503f76-69f1-4505-bc24-f3318a73c0f7" />
+
+<img width="264" height="64" alt="Screenshot 2026-02-26 at 3 12 12 PM" src="https://github.com/user-attachments/assets/bbf09c55-cdc4-4db4-b347-c7bfa06c7752" />
+
+we observe difference in voltage is due to application of vds 
+
+V(x) is the voltage at any point x on channel 
+
+Before application of Vds at every point the voltage is Vgs 
+After application of Vds voltage the voltage is Vgs-V(x) is considered as **Effective voltage**
+
+---
