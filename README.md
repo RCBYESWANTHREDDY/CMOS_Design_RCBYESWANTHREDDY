@@ -1,4 +1,4 @@
-# CMOS_Circuit_Design
+<img width="311" height="122" alt="Screenshot 2026-02-26 at 4 55 21 PM" src="https://github.com/user-attachments/assets/6b5bf73c-b6a0-443d-a0d1-ee65166e0181" /># CMOS_Circuit_Design
 # LECTURE 1
 
 # CMOS Inverter Operation, SPICE Simulation, and Delay Characterization
@@ -535,5 +535,76 @@ for all values vds <= (vgs-vt) the mosfet operates in linear region
 ---
 
 # Day 1 part2 Lecture 4
+
 # SPICE conclusion to resistive operation
 
+## impact of vgs and vt on drain current
+
+Vgs is varied from 0.5 to 2.5 v in increamental intervels of 0.5
+so we get (Vgs-Vt) accordingly 
+
+<img width="297" height="97" alt="Screenshot 2026-02-26 at 4 55 37 PM" src="https://github.com/user-attachments/assets/fbdb3d22-dcf4-4622-a015-23ee96a12589" />
+
+Vgs = 0.5 v
+
+<img width="290" height="112" alt="Screenshot 2026-02-26 at 4 56 27 PM" src="https://github.com/user-attachments/assets/c01ccfdc-0657-48ab-aeaf-48d8f1fabcc8" />
+
+Vgs = 1  v
+
+<img width="324" height="120" alt="Screenshot 2026-02-26 at 4 57 41 PM" src="https://github.com/user-attachments/assets/3a83cc76-19ae-4e02-9a60-16965159dc53" />
+
+Vgs = 1.5 v
+
+<img width="291" height="113" alt="Screenshot 2026-02-26 at 4 58 51 PM" src="https://github.com/user-attachments/assets/79ae9449-2104-4d7b-80d3-5b6b4193af63" />
+
+Vgs = 2 v
+
+<img width="343" height="115" alt="Screenshot 2026-02-26 at 4 59 09 PM" src="https://github.com/user-attachments/assets/7f1d03d3-9f6b-4c75-876a-416c06921a45" />
+
+Vgs = 2.5 v
+
+<img width="301" height="137" alt="Screenshot 2026-02-26 at 4 59 21 PM" src="https://github.com/user-attachments/assets/e2e6bbb0-249b-4f02-b3b3-cfee429e934e" />
+
+from the above observations if voltage is applied 0.5 we can sweed vds till 0.45 v in order to operate the mosfet in linear region
+
+## how to calculate Id for different values of Vgs
+
+we use spice simulations to do that .
+
+---
+
+#  Day 1 part2 Lecture 5
+
+# Pinch-off region condition
+
+## saturation region
+
+we observe what happens if we increase the value of Vds
+
+we keep Vgs and Vt constant and increase Vds 
+
+<img width="664" height="336" alt="Screenshot 2026-02-26 at 5 06 20 PM" src="https://github.com/user-attachments/assets/7d84e0d0-5d0e-4e21-8e17-f4bf5e3f3ee5" />
+
+Till Vds <= 0.45 v ,channel voltage is greater than Vt so we can see conducting channel from source to drain
+
+<img width="304" height="181" alt="Screenshot 2026-02-26 at 5 10 16 PM" src="https://github.com/user-attachments/assets/47a2fef3-22a9-49bf-8ee4-79b1093116b9" />
+
+<img width="394" height="297" alt="Screenshot 2026-02-26 at 5 10 44 PM" src="https://github.com/user-attachments/assets/c7422ce7-c3a6-4b3e-ae54-155ef85b22f3" />
+
+at vds = 0.55 v , surface inversion happens and  channel voltage is equal thresold voltage
+
+<img width="288" height="47" alt="Screenshot 2026-02-26 at 5 11 18 PM" src="https://github.com/user-attachments/assets/922509e2-2f3a-454c-a7a1-719ae9d91084" />
+
+<img width="316" height="322" alt="Screenshot 2026-02-26 at 5 11 43 PM" src="https://github.com/user-attachments/assets/18f5e58f-b6e8-457b-b220-5852e0d5c27e" />
+
+<img width="305" height="304" alt="Screenshot 2026-02-26 at 5 13 49 PM" src="https://github.com/user-attachments/assets/71f7c650-1385-4f16-aa0f-42bc63389001" />
+
+
+at vds >= 0.55 , channel voltage is less than thresold voltage channel disappears
+this conditon is known as **Saturation region**
+
+<img width="278" height="106" alt="Screenshot 2026-02-26 at 5 15 36 PM" src="https://github.com/user-attachments/assets/167da0bf-0eb4-4cc3-92f8-86f888a94c71" />
+
+<img width="348" height="333" alt="Screenshot 2026-02-26 at 5 15 49 PM" src="https://github.com/user-attachments/assets/545a94b1-a2c9-4b8f-9af5-210262e85863" />
+
+---
