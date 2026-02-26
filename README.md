@@ -583,19 +583,27 @@ we observe what happens if we increase the value of Vds
 
 we keep Vgs and Vt constant and increase Vds 
 
+
 <img width="664" height="336" alt="Screenshot 2026-02-26 at 5 06 20 PM" src="https://github.com/user-attachments/assets/7d84e0d0-5d0e-4e21-8e17-f4bf5e3f3ee5" />
+
 
 Till Vds <= 0.45 v ,channel voltage is greater than Vt so we can see conducting channel from source to drain
 
+
 <img width="304" height="181" alt="Screenshot 2026-02-26 at 5 10 16 PM" src="https://github.com/user-attachments/assets/47a2fef3-22a9-49bf-8ee4-79b1093116b9" />
+
 
 <img width="394" height="297" alt="Screenshot 2026-02-26 at 5 10 44 PM" src="https://github.com/user-attachments/assets/c7422ce7-c3a6-4b3e-ae54-155ef85b22f3" />
 
+
 at vds = 0.55 v , surface inversion happens and  channel voltage is equal thresold voltage
+
 
 <img width="288" height="47" alt="Screenshot 2026-02-26 at 5 11 18 PM" src="https://github.com/user-attachments/assets/922509e2-2f3a-454c-a7a1-719ae9d91084" />
 
-<img width="316" height="322" alt="Screenshot 2026-02-26 at 5 11 43 PM" src="https://github.com/user-attachments/assets/18f5e58f-b6e8-457b-b220-5852e0d5c27e" />
+
+<img width="316" height="322" alt="Screenshot 2026-02-26 at 5 11 43 PM" src="https://github.com/user-attachments/assets/18f5e58f-b6e8-457b-b220-5852e0d5c27e" /> 
+
 
 <img width="305" height="304" alt="Screenshot 2026-02-26 at 5 13 49 PM" src="https://github.com/user-attachments/assets/71f7c650-1385-4f16-aa0f-42bc63389001" />
 
@@ -603,7 +611,9 @@ at vds = 0.55 v , surface inversion happens and  channel voltage is equal threso
 at vds >= 0.55 , channel voltage is less than thresold voltage channel disappears
 this conditon is known as **Saturation region**
 
-<img width="278" height="106" alt="Screenshot 2026-02-26 at 5 15 36 PM" src="https://github.com/user-attachments/assets/167da0bf-0eb4-4cc3-92f8-86f888a94c71" />
+
+<img width="278" height="106" alt="Screenshot 2026-02-26 at 5 15 36 PM" src="https://github.com/user-attachments/assets/167da0bf-0eb4-4cc3-92f8-86f888a94c71" /> 
+
 
 <img width="348" height="333" alt="Screenshot 2026-02-26 at 5 15 49 PM" src="https://github.com/user-attachments/assets/545a94b1-a2c9-4b8f-9af5-210262e85863" />
 
