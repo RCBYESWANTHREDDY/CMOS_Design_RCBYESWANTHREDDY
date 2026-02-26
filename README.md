@@ -618,3 +618,192 @@ this conditon is known as **Saturation region**
 <img width="348" height="333" alt="Screenshot 2026-02-26 at 5 15 49 PM" src="https://github.com/user-attachments/assets/545a94b1-a2c9-4b8f-9af5-210262e85863" />
 
 ---
+
+#  Day 1 part2 Lecture 6
+
+#  Drain current model for saturation region of operation
+
+In saturation region voltage is constant 
+
+<img width="378" height="315" alt="Screenshot 2026-02-26 at 5 58 08 PM" src="https://github.com/user-attachments/assets/a66b8e21-9711-4377-b7c4-13cce6882b3f" />
+
+No dependency in vds in saturation region
+
+<img width="249" height="161" alt="Screenshot 2026-02-26 at 7 28 24 PM" src="https://github.com/user-attachments/assets/f6110f1b-4848-4be8-960b-f0752d4a3c29" />
+
+Replace Vds by Vgs - Vt
+
+We get drain current in saturation region
+
+<img width="251" height="154" alt="Screenshot 2026-02-26 at 7 32 48 PM" src="https://github.com/user-attachments/assets/d6a1716a-f0e8-4da3-9969-d7c7dc7ab3c0" />
+
+it is no longer linear and we have less terms to deal with
+Looks like perfect current source implies current is constant but it is not true 
+
+<img width="577" height="238" alt="Screenshot 2026-02-26 at 7 34 50 PM" src="https://github.com/user-attachments/assets/4e2ac7c9-5db3-44bd-98e9-9110014f6a6a" />
+
+Vds is increasedchannel length is still modulated not constant.
+That depencency is **channel length modulation**
+
+<img width="461" height="120" alt="Screenshot 2026-02-26 at 7 36 57 PM" src="https://github.com/user-attachments/assets/fd3a5145-169d-4e0c-a939-0f654dccdb26" />
+
+So this is drain current equation in saturation region
+
+---
+# Day 1 Part 3 Lecture 1
+# Basic SPICE setup
+
+Spice is a software which generates delay waveforms from the input which defines the MOSFETS
+Our MOSFET 
+
+<img width="293" height="268" alt="Screenshot 2026-02-26 at 7 45 38 PM" src="https://github.com/user-attachments/assets/56b29fc4-59d3-42a0-bac0-8a3d59b6de3f" />
+
+Elements defining MOSFET 
+
+**THRESHOLD VOLTAGE**
+
+<img width="289" height="175" alt="Screenshot 2026-02-26 at 7 47 03 PM" src="https://github.com/user-attachments/assets/ed852dd2-4c13-445d-9c20-31115e208cf9" />
+
+**DRAIN CURRENT IN LINEAR REGION**
+
+<img width="254" height="72" alt="Screenshot 2026-02-26 at 7 49 01 PM" src="https://github.com/user-attachments/assets/d28caefc-0f73-4674-a47f-41ddc6ee8cd8" />
+
+**DRAIN CURRENT IN SATURATION REGION**
+
+<img width="285" height="74" alt="Screenshot 2026-02-26 at 7 49 20 PM" src="https://github.com/user-attachments/assets/4205f049-c7f5-480b-b1c3-a150e4328d4e" />
+
+Technological constants are highlighted in yellow . no need to derive they come from foundaries. These are called SPICE model parameters
+
+<img width="478" height="328" alt="Screenshot 2026-02-26 at 7 50 02 PM" src="https://github.com/user-attachments/assets/8b339c56-d58b-4df5-bea5-95b92373e3f4" />
+
+Next we give SPICE net list also to spice software
+
+<img width="208" height="192" alt="Screenshot 2026-02-26 at 7 51 33 PM" src="https://github.com/user-attachments/assets/ba90f2ab-be8f-4493-8ddf-2f270784bea0" />
+
+we get
+
+<img width="161" height="110" alt="Screenshot 2026-02-26 at 7 51 50 PM" src="https://github.com/user-attachments/assets/bf8b7c3d-e519-4f27-ba5a-0be33940e8cd" />
+
+## Details of SPICE netlist
+
+<img width="601" height="250" alt="Screenshot 2026-02-26 at 7 54 38 PM" src="https://github.com/user-attachments/assets/65e551f9-3040-4e8c-8b70-5d8464f70b37" />
+
+MOSFET can be represented in the form of circuit and role of resistor is stop feeding current directly to gate as it may damage the MOSFET
+
+all Vss is variable so we control them to get waveforms in one go
+
+<img width="299" height="211" alt="Screenshot 2026-02-26 at 7 58 16 PM" src="https://github.com/user-attachments/assets/ec0b166b-4fe8-48d9-9dd8-0635abb77eaa" />
+
+so we feed this data to SPICE software
+
+---
+# Day 1 Part 3 Lecture 2
+# Circuit description in SPICE syntax
+
+we need to write SPICE data in correct syntax just like c programming has its own syntax SPICE has its own syntax
+
+**STEP 1 :**  Defining Nodes
+
+lets assign values to the circuit
+
+<img width="279" height="198" alt="Screenshot 2026-02-26 at 8 04 20 PM" src="https://github.com/user-attachments/assets/3d5919c8-abff-4357-9a94-dab9049bc4af" />
+
+we need to create nodes in order to feed anything like R1 it needs to be in between two nodes in order SPICE to understand the given command
+
+<img width="341" height="294" alt="Screenshot 2026-02-26 at 8 08 16 PM" src="https://github.com/user-attachments/assets/b6a9a43d-0b58-4b14-95d6-6ab7329e44fb" />
+
+These are the nodes and they are given names 
+
+**STEP 2 :** Feeding the values
+
+First MOSFET name
+
+<img width="643" height="235" alt="Screenshot 2026-02-26 at 8 14 56 PM" src="https://github.com/user-attachments/assets/4d8c3d42-d015-4738-be9a-074c4d795213" />
+
+Second Drain
+
+<img width="651" height="279" alt="Screenshot 2026-02-26 at 8 15 37 PM" src="https://github.com/user-attachments/assets/877812e6-143f-4c34-bb00-fa3715055a5d" />
+
+Third Source
+
+<img width="670" height="242" alt="Screenshot 2026-02-26 at 8 16 20 PM" src="https://github.com/user-attachments/assets/aa0b4c33-8110-471f-8ace-71a486e58654" />
+
+Fourth Substrate
+
+<img width="660" height="239" alt="Screenshot 2026-02-26 at 8 17 16 PM" src="https://github.com/user-attachments/assets/00022a2f-422d-47de-ac18-7b897f732c6a" />
+
+Fifth MOSFET NAME
+
+<img width="650" height="241" alt="Screenshot 2026-02-26 at 8 19 27 PM" src="https://github.com/user-attachments/assets/8e304822-25c2-4b65-b8fd-8ca182808d90" />
+
+SIXTH width of Gate 
+
+<img width="627" height="269" alt="Screenshot 2026-02-26 at 8 20 09 PM" src="https://github.com/user-attachments/assets/44b05d41-e68a-44b3-baa0-65c8a9277ee6" />
+
+ Seventh Length of Gate
+ 
+ <img width="635" height="257" alt="Screenshot 2026-02-26 at 8 21 14 PM" src="https://github.com/user-attachments/assets/313a10c9-e2cf-4737-ba1e-c1c19ed85a96" />
+
+same fashion we define resistor
+
+<img width="119" height="22" alt="Screenshot 2026-02-26 at 8 22 38 PM" src="https://github.com/user-attachments/assets/95979f40-0f94-4745-99fa-9e950f784e84" />
+The order is First Terminal , Second Terminal , Resistance value
+
+Next Vdd ( DRAIN VOLTAGE)
+
+<img width="137" height="24" alt="Screenshot 2026-02-26 at 8 24 44 PM" src="https://github.com/user-attachments/assets/98f49278-e85c-4f7d-a3c0-6596caee296a" />
+
+The order is First Terminal , Second Terminal , Drain voltage value
+
+Next Vin ( GATE VOLTAGE )
+
+<img width="134" height="32" alt="Screenshot 2026-02-26 at 8 26 11 PM" src="https://github.com/user-attachments/assets/8d724928-1b2a-45e7-a245-740d9765148e" />
+
+The order is First Terminal , Second Terminal ,Gate voltage value
+
+---
+# Day 1 Part 3 Lecture 3
+# Define technology parameters
+
+Next , we need to get model of nmos 
+
+once we have all constants it becomes easy to find out the NMOS model 
+
+These are model parameters they come in package 
+
+<img width="198" height="138" alt="Screenshot 2026-02-26 at 8 36 29 PM" src="https://github.com/user-attachments/assets/940658d5-721c-4141-8f6c-42a0bd825f0f" />
+
+For this nmos model 
+
+ <img width="281" height="86" alt="Screenshot 2026-02-26 at 8 37 28 PM" src="https://github.com/user-attachments/assets/ddb6de7d-00d8-4950-99ee-225aa4b161d5" />
+
+ 
+For this pmos model 
+
+<img width="298" height="77" alt="Screenshot 2026-02-26 at 8 39 25 PM" src="https://github.com/user-attachments/assets/3991b58e-467c-4b9e-be22-8c7eaaf48341" />
+
+Package the models
+
+<img width="309" height="157" alt="Screenshot 2026-02-26 at 8 41 32 PM" src="https://github.com/user-attachments/assets/7704928b-464c-4311-abc3-de09237c385c" />
+
+just name the sections and give simulation commands
+
+<img width="508" height="293" alt="Screenshot 2026-02-26 at 8 45 00 PM" src="https://github.com/user-attachments/assets/61056df8-dab3-4b9d-9281-d5eda8388f5c" />
+
+This is done to calculate drian current at different values of Vgs
+
+---
+# Day 1 Part 3 Lecture 4
+# First SPICE simulation
+
+
+---
+
+
+
+
+
+
+
+
+
