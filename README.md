@@ -871,6 +871,64 @@ we observe drain current of short length channel one has linear dependency while
 ---
 
 # Day 2 part 1 lecture 3
+
 # Velocity saturation at lower and higher electric fields
 
+## velocity saturation effect
+ 
+This is observed in short channel devices
 
+<img width="695" height="336" alt="Screenshot 2026-02-27 at 1 07 28 AM" src="https://github.com/user-attachments/assets/5a43b513-ea53-47c1-be6e-6a5993113be1" />
+
+This will eventually become region of operation (Fourth mode)
+
+**Velocity saturation** says for lower values of electric fields the velocity is linear later it saturates
+
+ <img width="568" height="209" alt="Screenshot 2026-02-27 at 1 10 29 AM" src="https://github.com/user-attachments/assets/088fcfff-c02e-4601-a600-2d3e2e93dc58" />
+
+## Derivation
+
+<img width="329" height="78" alt="Screenshot 2026-02-27 at 1 11 30 AM" src="https://github.com/user-attachments/assets/6d338631-8472-4bed-9f90-1f3cedd9e3da" />
+
+at E = Ec
+ 
+<img width="651" height="251" alt="Screenshot 2026-02-27 at 1 12 35 AM" src="https://github.com/user-attachments/assets/0f0ee020-8aa5-4550-895a-d4d484e093bf" />
+
+**Simplified model**
+
+<img width="579" height="280" alt="Screenshot 2026-02-27 at 1 14 44 AM" src="https://github.com/user-attachments/assets/aa4fa2e0-56a4-47df-ae7e-7114d24ad85e" />
+
+---
+
+# Day 2 part 1 lecture 4
+# Velocity saturation drain current model
+
+## Drain current Model
+
+<img width="569" height="317" alt="Screenshot 2026-02-27 at 1 18 24 AM" src="https://github.com/user-attachments/assets/043f02cb-29bf-49fe-9055-20968fcd9cfe" />
+
+## Drain current for each region of operations
+
+**Saturation region**
+
+<img width="397" height="144" alt="Screenshot 2026-02-27 at 1 20 34 AM" src="https://github.com/user-attachments/assets/7fe0d34b-ffb1-4aad-bf41-3257d05573ea" />
+
+**Resistive region**
+
+<img width="391" height="206" alt="Screenshot 2026-02-27 at 1 21 35 AM" src="https://github.com/user-attachments/assets/47179629-4cd6-48c0-b4c2-75c69d0b20d2" /> 
+
+lambda vds term becomes zero 
+
+**Velocity saturation region**
+
+Vdsat is only available only for short channel devices
+
+<img width="434" height="213" alt="Screenshot 2026-02-27 at 1 25 19 AM" src="https://github.com/user-attachments/assets/63da3d53-9d84-4a23-9b8d-cdf90f267aba" />
+
+**Observation 2** 
+
+Velocity saturation cause device to saturate early so we observe peak current difference
+
+<img width="690" height="341" alt="Screenshot 2026-02-27 at 1 27 27 AM" src="https://github.com/user-attachments/assets/452fbdfb-afb0-4b77-93a7-32c9d06e6084" />
+
+---
