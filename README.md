@@ -1,4 +1,4 @@
-<img width="311" height="122" alt="Screenshot 2026-02-26 at 4 55 21 PM" src="https://github.com/user-attachments/assets/6b5bf73c-b6a0-443d-a0d1-ee65166e0181" /># CMOS_Circuit_Design
+# CMOS_Circuit_Design
 # LECTURE 1
 
 # CMOS Inverter Operation, SPICE Simulation, and Delay Characterization
@@ -788,6 +788,7 @@ Package the models
 
 just name the sections and give simulation commands
 
+
 <img width="508" height="293" alt="Screenshot 2026-02-26 at 8 45 00 PM" src="https://github.com/user-attachments/assets/61056df8-dab3-4b9d-9281-d5eda8388f5c" />
 
 This is done to calculate drian current at different values of Vgs
@@ -799,11 +800,77 @@ This is done to calculate drian current at different values of Vgs
 
 ---
 
+# Day 2 part 1 lecture 1
+# SPICE simulation for lower nodes
+
+Resulted waveform of SPICE simulation where we have **Drain current** in y axis and **Sweep voltage** in the x axis 
+
+<img width="611" height="357" alt="Screenshot 2026-02-26 at 9 18 46 PM" src="https://github.com/user-attachments/assets/ae950e16-0507-47fe-9e62-66ba21cda4a2" />
+
+**OBSERVATIONS** 
+
+1. At Vgs = 0 ;  Id( Drain current) = 0 and  Vgs = 0.5 V curve almost intersects with that curve 
+
+2. All the equations we calculated are encapsulated in this curves
+
+<img width="611" height="379" alt="Screenshot 2026-02-26 at 9 26 09 PM" src="https://github.com/user-attachments/assets/5de754d8-e625-467c-9158-de3670c34f6a" />
+
+3. From this curve we can see that
+
+In **LINEAR REGION**  for the lower values of Vds , (Vds)2/2 term tends to zero
+ Drain current is linear function of (Vds)
+
+similarly in **Saturation region** it shows dependency  with lambda not completely saturated and not completely linear but it appears to be constant
+
+**CASE 2** 
+
+Every thing remains same only changes are W = 0.375 u and L = 0.25 u
+Rest all the factors remains same
+
+<img width="566" height="368" alt="Screenshot 2026-02-26 at 10 56 50 PM" src="https://github.com/user-attachments/assets/3d7826d2-5b68-4dd5-a88b-e21676a26a29" />
+
+we get this curve as output 
+
+COMPARING BOTH CURVES 
+
+<img width="686" height="323" alt="Screenshot 2026-02-27 at 12 36 57 AM" src="https://github.com/user-attachments/assets/b823f6ab-7a35-4333-955e-29549a00a067" />
+
+---
 
 
+# Day 2 part 1 lecture 2
 
+# Drain current vs gate voltage for long and short channel device
 
+**Observations** from comparing two curves 
 
+1 st observation is
 
+<img width="394" height="330" alt="Screenshot 2026-02-27 at 12 42 47 AM" src="https://github.com/user-attachments/assets/031843a4-caa9-4ffd-b351-cb64ffc0cd44" />
+
+<img width="369" height="303" alt="Screenshot 2026-02-27 at 12 43 33 AM" src="https://github.com/user-attachments/assets/a47c715c-7738-4bcc-a50a-135f44de1ba1" />
+
+In Long channel device the drain current relation is quadratic where as in short channel device at starting the dependency is quadratic at low voltage but it becomes linear at later stages. Reason is **velocity saturation**
+
+## Drain current vs Gate voltage new simulation
+
+only change we do is in dc voltage line sweep in step 2.5
+
+<img width="233" height="158" alt="Screenshot 2026-02-27 at 12 48 27 AM" src="https://github.com/user-attachments/assets/8cf33acf-1cfb-49ad-bb4b-340bd2ba7888" />
+
+**Curve for 1.2 u**
+
+<img width="505" height="361" alt="Screenshot 2026-02-27 at 12 50 12 AM" src="https://github.com/user-attachments/assets/5cd40a9f-556e-40f2-b504-35fd22bc62d2" />
+
+Comparing it with **Curve for 0.8 u**
+
+<img width="713" height="357" alt="Screenshot 2026-02-27 at 12 51 39 AM" src="https://github.com/user-attachments/assets/ef5ed43a-655f-41c9-af2b-75796d6a76fd" />
+
+we observe drain current of short length channel one has linear dependency while the other one has quadratic relation
+
+---
+
+# Day 2 part 1 lecture 3
+# Velocity saturation at lower and higher electric fields
 
 
