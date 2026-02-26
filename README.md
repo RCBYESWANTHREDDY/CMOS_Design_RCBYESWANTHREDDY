@@ -447,7 +447,93 @@ we observe difference in voltage is due to application of vds
 
 V(x) is the voltage at any point x on channel 
 
+V(0) = 0 ; 
+
+V(L) = Vds
+
 Before application of Vds at every point the voltage is Vgs 
+
 After application of Vds voltage the voltage is Vgs-V(x) is considered as **Effective voltage**
 
 ---
+
+# Day 1 part2 Lecture 2
+
+# Drift current theory
+
+<img width="412" height="334" alt="Screenshot 2026-02-26 at 3 32 43 PM" src="https://github.com/user-attachments/assets/7c61b9bf-a404-4d75-9a92-253d0802da13" />
+
+![WhatsApp Image 2026-02-26 at 15 33 39](https://github.com/user-attachments/assets/728e06e1-3e48-47d4-bb39-df75850ffd91)
+
+# Induced charge 
+
+<img width="258" height="87" alt="Screenshot 2026-02-26 at 4 21 22 PM" src="https://github.com/user-attachments/assets/298141a6-021e-4950-aab7-266b496db290" />
+
+this is based on charge conservation principle
+
+## First order analysis
+
+<img width="257" height="242" alt="Screenshot 2026-02-26 at 4 23 38 PM" src="https://github.com/user-attachments/assets/2faea311-655c-4fe4-b3bc-57c8fe7485ca" />
+
+There are two different currents 
+
+1. **DRIFT CURRENT** due to potential difference
+
+2. **DIFFUSION CURRENT** due to diiference in carrier concentration
+
+<img width="682" height="338" alt="Screenshot 2026-02-26 at 4 26 43 PM" src="https://github.com/user-attachments/assets/25dc269b-5d19-4cdf-a627-3a49e658ce17" />
+
+we have drift current in our case 
+
+## Drift current 
+
+
+<img width="243" height="67" alt="Screenshot 2026-02-26 at 4 30 17 PM" src="https://github.com/user-attachments/assets/8819213c-5a41-4e14-9828-732217bbe6ba" />
+
+**channel width** from top level
+
+<img width="680" height="391" alt="Screenshot 2026-02-26 at 4 29 16 PM" src="https://github.com/user-attachments/assets/d83b473b-0945-4839-a1ac-f3a836d88be4" />
+
+drift current is a function of channel width.
+To get the drift current we need to integrate velocity and available charge over channel width
+
+---
+
+# Day 1 part2 Lecture 3
+
+# Drain current model for linear region of operation
+
+<img width="253" height="91" alt="Screenshot 2026-02-26 at 4 38 00 PM" src="https://github.com/user-attachments/assets/95908493-ea18-4b57-a841-dd6f7d8d23fb" />
+
+<img width="183" height="16" alt="Screenshot 2026-02-26 at 4 38 20 PM" src="https://github.com/user-attachments/assets/b7bd298b-6d98-4d38-bb90-613b4cc12292" />
+
+substituting v(n) and qi(x) values and integrate over channel length
+
+<img width="269" height="77" alt="Screenshot 2026-02-26 at 4 39 46 PM" src="https://github.com/user-attachments/assets/f7c80706-c7af-456e-af25-e746b86935fc" />
+
+we need to integrate length from 0 to L and and voltage from 0 to vds
+we get
+
+<img width="273" height="170" alt="Screenshot 2026-02-26 at 4 41 49 PM" src="https://github.com/user-attachments/assets/4da2bf8a-bf04-4add-b6b1-26f3e3d3581c" />
+
+we observe quadratic relation with width but we need linear relation so simplify it further 
+
+substituting **process transconductance**
+
+<img width="270" height="33" alt="Screenshot 2026-02-26 at 4 44 20 PM" src="https://github.com/user-attachments/assets/4f935b97-1146-4ab7-a489-b0a625c89e2c" />
+
+we get 
+
+<img width="258" height="39" alt="Screenshot 2026-02-26 at 4 45 04 PM" src="https://github.com/user-attachments/assets/72a4a617-6186-4d07-89f9-a0e983dc4abb" />
+
+we still need to get first order relation , before that substituting givenvalues in equation we get
+
+<img width="417" height="238" alt="Screenshot 2026-02-26 at 4 48 17 PM" src="https://github.com/user-attachments/assets/b4e5f70d-8c0d-4c91-83fb-f1ed9512b140" />
+
+for all values vds <= (vgs-vt) the mosfet operates in linear region 
+
+---
+
+# Day 1 part2 Lecture 4
+# SPICE conclusion to resistive operation
+
