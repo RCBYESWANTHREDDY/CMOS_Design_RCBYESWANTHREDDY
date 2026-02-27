@@ -1561,3 +1561,81 @@ For any signal to be considered as logic ‘0’ and logic ‘1’, it should be
 
 ---
 
+# Day 4 Lecture 4
+
+# Noise margin variation with respect to PMOS width
+
+## Case 1: Wp/Lp – Wn/Ln (Baseline)
+
+The simulation uses equal PMOS and NMOS sizing (Wp/Lp = Wn/Ln).
+
+The SPICE simulation produces the VTC shown below, and the slope = −1 tangent line is used to extract Vil and Vih .
+
+<img width="583" height="321" alt="Screenshot 2026-02-27 at 4 50 44 PM" src="https://github.com/user-attachments/assets/6be79e68-8fd0-427c-aad6-94c06294cc55" />
+
+The midpoint voltage Vm = 0.99V . The extracted noise margins for this case are:
+
+<img width="537" height="325" alt="Screenshot 2026-02-27 at 4 52 45 PM" src="https://github.com/user-attachments/assets/f9e7d75f-2f42-4146-b8ad-dd7df09ce8d1" />
+
+### Case 1 results:
+
+<img width="190" height="69" alt="Screenshot 2026-02-27 at 4 53 33 PM" src="https://github.com/user-attachments/assets/dd4f8c66-fd8e-446f-85cf-db3e80a2842a" />
+
+## Case 2: Wp/Lp – 2Wn/Ln
+
+The NMOS width is doubled (x = 2). The VTC shifts to  right compared to Case 1. Vm increases to 1.2V.
+
+<img width="662" height="315" alt="Screenshot 2026-02-27 at 4 55 58 PM" src="https://github.com/user-attachments/assets/5ded1a8a-58bf-47e1-bfc8-a61d2e37a7bb" />
+
+### Case 2 results:
+
+VTC shifts right with Vm = 1.2V. NMₕ = 0.35, NMₗ = 0.3
+
+## Case 3: Wp/Lp – 3Wn/Ln
+
+The NMOS width is tripled (x = 3). Vm continues to increase to 1.25V. 
+NMh improves further while NMₗ remains at 0.3.
+
+<img width="677" height="313" alt="Screenshot 2026-02-27 at 4 57 20 PM" src="https://github.com/user-attachments/assets/ea7ddcf5-96a8-4312-89ce-ddef40e09657" />
+
+### Case 3 results:
+
+Vm = 1.25V. NMₕ = 0.4, NMₗ = 0.3.
+
+## Case 4: Wp/Lp – 4Wn/Ln
+
+With x = 4, the NMOS is now significantly wider than the PMOS. Vm = 1.35V.
+NMh saturates at 0.42, while NMl drops slightly to 0.27.
+
+<img width="680" height="340" alt="Screenshot 2026-02-27 at 4 59 33 PM" src="https://github.com/user-attachments/assets/b3313100-4ae1-4b0a-bbee-839bfd474efc" />
+
+### Case 4 results:
+
+Vm = 1.35V. NMₕ = 0.42, NMₗ = 0.27.
+
+## Case 5: Wp/Lp – 5Wn/Ln
+
+With x = 5, the NMOS width is five times the PMOS width. Vm = 1.4V. 
+Both NMh and NMl remain unchanged from Case 4, at 0.42 and 0.27, respectively.
+
+<img width="668" height="326" alt="Screenshot 2026-02-27 at 5 02 41 PM" src="https://github.com/user-attachments/assets/a8198928-5bf0-4542-84cd-a5fbba96d575" />
+
+### Case 5 results:
+ 
+Vm = 1.4V. NMₕ = 0.42, NMₗ = 0.27.
+
+## Summary of Results
+
+<img width="421" height="218" alt="Screenshot 2026-02-27 at 5 04 19 PM" src="https://github.com/user-attachments/assets/57af254d-974e-47a3-bf3d-57e4602aabfd" />
+
+## Observations From the simulation results
+
+NMh increases as NMOS width is scaled up (from 0.3 to 0.42), indicating a better tolerance for noise on the logic high side.
+
+The best symmetry (equal NMh and NMl) occurs at Case 1 (x = 1), where both values equal 0.3.
+
+Digital Design criterion requires equal NMh and NMl for symmetric noise immunity, best achieved at the baseline case where both equal 0.3.
+
+<img width="643" height="331" alt="Screenshot 2026-02-27 at 5 06 23 PM" src="https://github.com/user-attachments/assets/030582c4-c21d-4b37-aebb-1859cbac76ce" />
+
+---
