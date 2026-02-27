@@ -1,4 +1,4 @@
-# CMOS_Circuit_Design
+ # CMOS_Circuit_Design
 # LECTURE 1
 
 # CMOS Inverter Operation, SPICE Simulation, and Delay Characterization
@@ -1230,4 +1230,183 @@ The NMOS IdsN Vs VdsN curve is used directly — VdsN = Vout so it is already in
 
 ## Superimposing the Load Curves
 
+Superimpose the Load curve of NMOS on the Load curve of PMOS.
 
+<img width="590" height="231" alt="Screenshot 2026-02-27 at 1 14 29 PM" src="https://github.com/user-attachments/assets/eb7183fe-5e34-447e-8f60-17656ee70e54" />
+
+Both PMOS and NMOS curves are now on same graph with Vout on the x-axis and IdsN on the y-axis. 
+
+Each Vin value has one PMOS curve and one NMOS curve.
+
+## Finding Intersection Points
+
+Vin and Vout are common to PMOS and NMOS.
+
+<img width="693" height="326" alt="Screenshot 2026-02-27 at 1 22 01 PM" src="https://github.com/user-attachments/assets/f2929585-8500-42ed-b2d2-8c6b7e1e4772" />
+
+For each Vin value, the PMOS and NMOS curves intersect at a point. That intersection gives the operating Vout value for that Vin.
+These are the points on the VTC.
+
+## Plotting the VTC — Point by Point
+
+**When Vin = 0:**
+
+NMOS is OFF, PMOS is in linear region
+
+Intersection happens at Vout = 2
+
+First point plotted on VTC: (Vin = 0, Vout = 2)
+
+**When Vin = 0.5:**
+
+PMOS is in linear region, NMOS is in saturation
+Intersection gives: 1.5 < Vout < 2
+Second point plotted on VTC: (Vin = 0.5, Vout ~ 1.8)
+
+**When Vin = 1:**
+
+Both PMOS and NMOS are in saturation
+Intersection gives: 0.5 < Vout < 1.5
+Third point plotted on VTC: (Vin = 1, Vout ~ 1)
+
+**When Vin = 1.5:**
+
+PMOS is in saturation, NMOS is in linear region
+Intersection gives: 0 < Vout < 0.5
+Fourth point plotted on VTC: (Vin = 1.5, Vout ~ 0.3)
+
+**When Vin = 2:**
+
+NMOS is in linear region, PMOS is OFF
+Intersection happens at Vout = 0
+Fifth point plotted on VTC: (Vin = 2, Vout = 0)
+
+<img width="694" height="387" alt="Screenshot 2026-02-27 at 1 31 52 PM" src="https://github.com/user-attachments/assets/396cc957-45f4-484b-ad88-4bc9662fe00c" />
+
+---
+
+# Day 3 part 1 Lecture 1
+# SPICE deck creation for CMOS inverter
+
+## SPICE Deck
+
+**Step 1** – Component Connectivity
+
+The CMOS inverter circuit consists of:
+
+M1 — PMOS transistor connected between Vdd and output node.
+
+M2 — NMOS transistor connected between output node and Vss (ground).
+
+Both gates tied together as Vin input.
+
+cload — load capacitor at output node to Vss.
+
+<img width="215" height="311" alt="Screenshot 2026-02-27 at 1 38 33 PM" src="https://github.com/user-attachments/assets/02860c60-6b31-4c3f-89ae-b13d2dbe239d" />
+
+**Step 2** – Component Values
+
+The transistor dimensions and load capacitor values are added to the circuit:
+
+M1 (PMOS) — W = 0.375u, L = 0.25u
+
+M2 (NMOS) — W = 0.375u, L = 0.25u
+
+cload = 10fF
+
+Vdd = 2.5V
+
+<img width="259" height="282" alt="Screenshot 2026-02-27 at 1 41 59 PM" src="https://github.com/user-attachments/assets/6714d22a-2a55-4f99-8ff5-8ddcba88a4d2" />
+
+**Step 3** – Identify Nodes
+
+Nodes are the connection points in the circuit. Each unique wire junction is assigned a node name. The nodes identified in this circuit are:
+
+vdd — supply voltage node (top)
+in — input node (Vin gate connection)
+out — output node (drain junction of M1 and M2)
+0 —  ground / Vss node
+
+<img width="424" height="319" alt="Screenshot 2026-02-27 at 1 42 59 PM" src="https://github.com/user-attachments/assets/86c99a76-ab32-4f2d-b237-317e3b9ce0b4" />
+
+**SPICE Netlist Syntax**
+
+ <img width="361" height="100" alt="Screenshot 2026-02-27 at 1 44 00 PM" src="https://github.com/user-attachments/assets/b4aedff8-4538-4ad6-b22b-6560e998bce4" />
+
+---
+
+# Day 3 part 2 lecture 1
+# Switching Threshold, Vm
+
+## Comparing Two Device Configurations
+
+Two SPICE simulations compared side by side:
+Case 1: Wn = Wp = 0.375u, Ln,p = 0.25u   →   Wn/Ln = Wp/Lp = 1.5
+Case 2: Wn = 0.375u, Wp = 0.9375u, Ln,p = 0.25u   →   Wn/Ln = 1.5, Wp/Lp = 3.75
+
+<img width="675" height="321" alt="Screenshot 2026-02-27 at 1 54 40 PM" src="https://github.com/user-attachments/assets/0964d3cb-e8a4-4415-8b06-66eca063b740" />
+
+Case 2 has a wider PMOS (Wp = 0.9375u) compared to Case 1 (Wp = 0.375u). 
+This is done to match the drive strength of PMOS to NMOS, since the hole mobility of PMOS is lower than electron mobility of NMOS.
+
+## Observations
+
+Comparing both VTC curves:
+
+**Case 1 (Wn/Ln = Wp/Lp = 1.5)** — switching threshold Vm ~ 0.98V, shifted slightly left (towards lower Vin)
+
+**Case 2 (Wn/Ln = 1.5, Wp/Lp = 3.75)** — switching threshold Vm ~ 1.2V, shifted towards center (closer to Vdd/2)
+
+Increasing Wp shifts the VTC to the right — makes the inverter switch at a higher Vin
+
+## Static Behavior Evaluation – CMOS Inverter Robustness
+
+**1. Switching Threshold, Vm**
+
+Vm is the point where Vin = Vout on the VTC curve. It is found by drawing a diagonal line (Vin = Vout) on the VTC and finding the intersection.
+
+<img width="572" height="376" alt="Screenshot 2026-02-27 at 1 57 49 PM" src="https://github.com/user-attachments/assets/57ca71c9-4d71-49f4-80da-c936b69e57f3" />
+
+The diagonal line (Vin = Vout) is overlaid on the VTC curve. The point where they intersect is Vm — the switching threshold of the inverter.
+
+
+<img width="657" height="272" alt="Screenshot 2026-02-27 at 1 57 17 PM" src="https://github.com/user-attachments/assets/77c43b9c-f71a-4bf3-9cdd-6d9d8ae7afc5" />
+
+The intersection point differs between Case 1 and Case 2.
+
+## Vm Values from VTC
+
+ <img width="654" height="284" alt="Screenshot 2026-02-27 at 1 59 25 PM" src="https://github.com/user-attachments/assets/4d06ecef-8b7f-437d-9b7f-7113a0f8577e" />
+ 
+<img width="492" height="237" alt="Screenshot 2026-02-27 at 2 00 00 PM" src="https://github.com/user-attachments/assets/fe791226-7bdd-433d-9f20-1a552268262f" />
+
+From the VTC with all operating region labels:
+
+PMOS linear, NMOS off   →   Vout = 2 (Vin ~ 0)
+
+PMOS linear, NMOS sat   →   Vout ~ 1.8 (Vin ~ 0.5)
+
+PMOS sat, NMOS sat   →   Vout ~ 1 (Vin ~ 1) — this is the transition region
+
+PMOS sat, NMOS linear   →   Vout ~ 0.3 (Vin ~ 1.5)
+
+PMOS off, NMOS linear   →   Vout = 0 (Vin ~ 2)
+
+**Vm values:**
+
+Case 1: Vm ~ 0.98V
+Case 2: Vm ~ 1.2V
+
+## Condition at Vm
+
+<img width="543" height="291" alt="Screenshot 2026-02-27 at 2 01 30 PM" src="https://github.com/user-attachments/assets/21e06dd8-e543-4924-9eb5-ba2914a90541" />
+
+**At the switching threshold Vm:**
+
+Vgs = Vds for both PMOS and NMOS (since Vin = Vout = Vm at this point)
+
+IdsP = -IdsN — the PMOS and NMOS currents are equal and opposite, confirming the equilibrium condition
+
+Both transistors are in saturation at Vm
+
+This condition (IdsP = -IdsN) is used to analytically derive the expression for Vm in terms of transistor parameters.
