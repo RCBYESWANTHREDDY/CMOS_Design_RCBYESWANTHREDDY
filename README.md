@@ -1,4 +1,3 @@
-<img width="642" height="374" alt="Screenshot 2026-02-27 at 9 35 20 PM" src="https://github.com/user-attachments/assets/3ccfbe62-d700-4e0a-9779-1e6030b22d48" /> # CMOS_Circuit_Design
 # LECTURE 1
 
 # CMOS Inverter Operation, SPICE Simulation, and Delay Characterization
