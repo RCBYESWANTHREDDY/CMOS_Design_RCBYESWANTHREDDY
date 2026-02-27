@@ -1,4 +1,4 @@
- # CMOS_Circuit_Design
+<img width="642" height="374" alt="Screenshot 2026-02-27 at 9 35 20 PM" src="https://github.com/user-attachments/assets/3ccfbe62-d700-4e0a-9779-1e6030b22d48" /> # CMOS_Circuit_Design
 # LECTURE 1
 
 # CMOS Inverter Operation, SPICE Simulation, and Delay Characterization
@@ -45,6 +45,7 @@ The inverter transition region occurs when both pull-up and pull-down networks c
 ---
 
 ### Drain Current Characteristics
+
 <img width="1050" height="394" alt="Screenshot 2026-02-23 at 10 07 53 AM" src="https://github.com/user-attachments/assets/41a9c43a-6835-4eab-a9dc-6c80fd461527" />
 
 The figure illustrates:
@@ -64,7 +65,6 @@ The Voltage Transfer Characteristic defines the static relationship between inpu
 ### VTC Curve from SPICE
 
 <img width="936" height="486" alt="Screenshot 2026-02-23 at 10 08 36 AM" src="https://github.com/user-attachments/assets/3fd719c5-113c-48c9-afac-be2ebe0acedf" />
-
 
 Key observations:
 
@@ -359,7 +359,6 @@ In the positive VSB case, the body connection attracts negatively charged partic
 
  <img width="400" height="418" alt="Screenshot 2026-02-25 at 4 26 49 PM" src="https://github.com/user-attachments/assets/86979484-5558-4e94-851f-a86d660e4156" />
 
-
 **Conclusion:** With positive source-to-body voltage (VSB > 0), the threshold voltage increases. This effect is called the body effect (or substrate bias effect). 
 
 <img width="526" height="57" alt="Screenshot 2026-02-25 at 4 30 36 PM" src="https://github.com/user-attachments/assets/aa9ef5bf-0d3d-420f-a6aa-6764105bb75d" />
@@ -408,7 +407,6 @@ There are 3 modes of operations
 3 .saturation mode
 
 ## Resistive mode of operation
-
 
 If Vgs is increased there will be more charge carriers in the channel and more conducting area between source and drain 
 
@@ -486,7 +484,6 @@ There are two different currents
 we have drift current in our case 
 
 ## Drift current 
-
 
 <img width="243" height="67" alt="Screenshot 2026-02-26 at 4 30 17 PM" src="https://github.com/user-attachments/assets/8819213c-5a41-4e14-9828-732217bbe6ba" />
 
@@ -801,6 +798,7 @@ This is done to calculate drian current at different values of Vgs
 ---
 
 # Day 2 part 1 lecture 1
+
 # SPICE simulation for lower nodes
 
 Resulted waveform of SPICE simulation where we have **Drain current** in y axis and **Sweep voltage** in the x axis 
@@ -901,6 +899,7 @@ at E = Ec
 ---
 
 # Day 2 part 1 lecture 4
+
 # Velocity saturation drain current model
 
 ## Drain current Model
@@ -932,8 +931,15 @@ Velocity saturation cause device to saturate early so we observe peak current di
 <img width="690" height="341" alt="Screenshot 2026-02-27 at 1 27 27 AM" src="https://github.com/user-attachments/assets/452fbdfb-afb0-4b77-93a7-32c9d06e6084" />
 
 ---
+# Day 2 Part 1 Lecture 5
 
+
+# Day 2 Part 2 Lecture 6
+
+
+----
 # Day 2 Part 2 Lecture 1
+
 # MOSFET as a switch
 
 ## CMOS Voltage-Transfer Characteristics (VTC)
@@ -1142,6 +1148,7 @@ Higher |VgsN| gives higher IdsN value for NMOS; higher |VgsP| gives higher |IdsP
 ---
 
 # Day 2 Part 2 Lecture 4
+
 # Step1 – Convert PMOS gate-source-voltage to Vin
 
 ## SPICE Simulation for Lower Nodes
@@ -1187,7 +1194,9 @@ After conversion:
  When Vin = 2 → lowest PMOS current curve
 
 ---
+
 #  Day 2 Part 2 Lecture 5
+
 #  Step2 & Step3 – Convert PMOS and NMOS drain-source-voltage to vout
 
 ## Convert PMOS and NMOS Drain-Source Voltage to Vout
@@ -1286,6 +1295,7 @@ Fifth point plotted on VTC: (Vin = 2, Vout = 0)
 ---
 
 # Day 3 part 1 Lecture 1
+
 # SPICE deck creation for CMOS inverter
 
 ## SPICE Deck
@@ -1335,6 +1345,94 @@ out — output node (drain junction of M1 and M2)
 
 ---
 
+# Day 3 part 1 lecture 2
+
+# SPICE simulation for CMOS inverter
+
+## Step 1 — Defining PMOS (M1)
+
+First, we define M1, which is the PMOS transistor. It is highlighted in yellow in the netlist.
+
+<img width="644" height="300" alt="Screenshot 2026-02-27 at 8 26 00 PM" src="https://github.com/user-attachments/assets/c1a4af90-b1db-4884-8563-70128dd576eb" />
+
+
+The syntax for M1 is:
+
+M1 out in vdd vdd pmos W=0.375u L=0.25u
+
+Here the order is: MOSFET Name → Drain → Gate → Source → Substrate → MOSFET Type → Width → Length
+
+## Step 2 — Defining NMOS (M2)
+
+Next, we define M2, which is the NMOS transistor. It is highlighted in yellow.
+
+<img width="639" height="311" alt="Screenshot 2026-02-27 at 8 30 27 PM" src="https://github.com/user-attachments/assets/de246924-3d47-4df1-be66-fecd7704ad7c" />
+
+The syntax for M2 is:
+
+M2 out in 0 0 nmos W=0.375u L=0.25u
+
+For NMOS, the source and substrate are both connected to ground (0).
+
+## Step 3 — Load Capacitor and Voltage Sources
+
+After defining the transistors, we define the load capacitor (cload) and voltage sources. Vdd is highlighted in yellow.
+
+<img width="637" height="296" alt="Screenshot 2026-02-27 at 8 31 36 PM" src="https://github.com/user-attachments/assets/9439f748-1dc7-43b9-9a4a-046d552dfc31" />
+
+c load is connected between the output node and ground with a value of 10fF. Vdd and Vin are defined as:
+
+cload out 0 10f
+Vdd vdd 0 2.5
+Vin in 0 2.5
+
+## Step 4 — Simulation Commands
+
+The simulation commands section is defined with .op and .dc sweep. The .dc command highlighted in yellow sweeps Vin from 0 to 2.5V in steps of 0.05V.
+
+<img width="654" height="309" alt="Screenshot 2026-02-27 at 8 32 53 PM" src="https://github.com/user-attachments/assets/9db4c0e4-5731-4dc3-b566-35eb88837357" />
+
+.op
+.dc Vin 0 2.5 0.05
+
+## Step 5 — Include Technology Model File
+
+The complete SPICE deck ends with including the TSMC 0.25um technology model file and .end statement. The .LIB command is highlighted.
+
+<img width="644" height="301" alt="Screenshot 2026-02-27 at 8 34 20 PM" src="https://github.com/user-attachments/assets/4d1c0f7f-85d5-48a9-ac3f-05d1c852e011" />
+
+## Running the Simulation in ngspice
+
+The SPICE deck is fed into ngspice software. On launching ngspice, terminal opens showing the tool version and ready state.
+
+<img width="563" height="333" alt="Screenshot 2026-02-27 at 8 35 36 PM" src="https://github.com/user-attachments/assets/ac4af2f6-fea7-4e30-9c23-d2b872c826a0" />
+
+## SPICE Waveform for short PMOS width
+
+After running the simulation, the output voltage (Vout) is plotted against the input voltage (Vin) to get the Voltage Transfer Characteristic (VTC).
+
+<img width="467" height="349" alt="Screenshot 2026-02-27 at 8 36 42 PM" src="https://github.com/user-attachments/assets/2907c3ce-663b-4bb8-9838-c225dad192bd" />
+
+##  SPICE Waveform for long PMOS width
+
+In the second simulation, the PMOS width is increased to Wp=0.9375u while keeping everything else the same. This changes the W/L ratio of the PMOS from 1.5 to 3.75.
+
+## comparing both curves 
+
+<img width="627" height="338" alt="Screenshot 2026-02-27 at 8 39 18 PM" src="https://github.com/user-attachments/assets/2317c974-b6aa-4ad6-8cca-65e136c4e296" />
+
+### observations
+
+When the PMOS W/L ratio increases (stronger pull-up), the switching threshold shifts to the right — meaning a higher input voltage is now required to pull the output low. 
+
+The PMOS being stronger than NMOS biases  transition towards higher input voltages. 
+
+This directly shows the impact of transistor sizing on the VTC and switching threshold of the CMOS inverter.
+
+---
+# Day 3 part 1 lecture 3
+
+---
 # Day 3 part 2 lecture 1
 
 # Switching Threshold, Vm
@@ -1420,8 +1518,228 @@ This condition (IdsP = -IdsN) is used to analytically derive the expression for 
 
 # Day 3 part 2 lecture 2
 
+# Analytical expression of Vm as a function of (W/L)p and (W/L)n
+
+## Switching Threshold Condition
+
+Vm is the point where Vin = Vout. At this point, Both PMOS and NMOS are in saturation.
+The switching threshold condition is:
+
+**IdSP = − IdSN  →  IdSP + IdSN = 0**
+
+<img width="619" height="324" alt="Screenshot 2026-02-27 at 8 46 53 PM" src="https://github.com/user-attachments/assets/2dd6c01a-77db-4be9-bb19-a87a7a94169d" />
+
+## Drain Current Equations at Vm
+
+Applying the saturation drain current model at Vm:
+
+**Id = μn · Cox · (W/L) · {[(Vgs − Vt) · Vdsat] − (Vdsat²/2)}**
+
+Since Vds at Vm equals to Vdsat (pinch-off), the NMOS current equation at the switching point becomes:
+
+**Idsn = kn · {[(Vm − Vt) · Vdsatn] − (Vdsatn²/2)}**
+
+
+<img width="624" height="336" alt="Screenshot 2026-02-27 at 8 48 36 PM" src="https://github.com/user-attachments/assets/1882e317-9fec-4d11-bc29-ddf38139df06" />
+
+## Deriving Vm Formula
+
+Setting the condition IdSP + IdSN = 0 and substituting both PMOS and NMOS current expressions:
+
+From the two SPICE cases observed:
+
+Vm ≈ 0.98v  (for Wn/Ln = Wp/Lp = 1.5)
+
+Vm ≈ 1.2v   (for Wn/Ln = 1.5, Wp/Lp = 3.75)
+
+<img width="639" height="353" alt="Screenshot 2026-02-27 at 8 50 01 PM" src="https://github.com/user-attachments/assets/4eef60a7-d4a4-4f16-85fa-92dc850fbb62" />
+
+This formula confirms that Vm can be tuned by varying the (W/L) ratio of PMOS relative to NMOS.
+
+---
+# Day 3 part 2 lecture 1
+
+# Analytical expression of (W/L)p and (W/L)n as a function of Vm
+
+## Alternatively: Deriving Required PMOS vs NMOS Transistor Size Ratio
+
+Instead of solving for Vm directly, we can rearrange the condition to derive the required **(Wp/Lp)/(Wn/Ln) ratio** that sets a desired Vm.
+
+
+Rearranging the equation:
+
+**kn · {[(Vm − Vt) · Vdsatn] − (Vdsatn²/2)} = −kp · {[(Vm − Vdd − Vt) · Vdsatp] − (Vdsatp²/2)}**
+
+<img width="460" height="63" alt="Screenshot 2026-02-27 at 8 59 47 PM" src="https://github.com/user-attachments/assets/7603c960-8815-47f1-8713-842e7a8670e8" />
+
+<img width="638" height="332" alt="Screenshot 2026-02-27 at 9 01 36 PM" src="https://github.com/user-attachments/assets/e5ec4f55-c328-44c6-90b3-e571d4b6eeff" />
+
+## Final Expression for (Wp/Lp)/(Wn/Ln) Ratio
+
+**(Wp/Lp) / (Wn/Ln)  =  [Kn' · Vdsatn([Vm − Vt]) − (Vdsatn/2)] / [Kp' · Vdsatp([−Vm + Vdd + Vt]) + (Vdsatp/2)]**
+
+<img width="609" height="338" alt="Screenshot 2026-02-27 at 9 02 53 PM" src="https://github.com/user-attachments/assets/5e377019-3efd-4c47-ab1e-159c397944ed" />
+
+## Switching Threshold vs Transistor Sizing Table
+
+From the formula Vm = R · Vdd / (1+R), varying x·Wn/Ln while keeping Wp/Lp fixed shifts Vm as follows:
+
+<img width="180" height="179" alt="Screenshot 2026-02-27 at 9 03 43 PM" src="https://github.com/user-attachments/assets/63080af3-76fe-4c78-927e-ff6afb8c6fcc" />
+ 
+increasing the NMOS (W/L) relative to PMOS shifts Vm downward, making the inverter switch earlier. Increasing PMOS (W/L) relative to NMOS shifts Vm upward.
+
+---
+# Day 3 part 2 lecture 4
+
+# Static and dynamic simulation of CMOS inverter
+
+## Simulation Setup
+
+We now verify the analytically derived Vm using SPICE simulation for the first case:
+
+SPICE waveform: Wn=Wp=0.375u, Ln,p=0.25u device
+(Wn/Ln = Wp/Lp = 1.5)
+
+The SPICE netlist used for the simulation is shown below. It includes the MODEL descriptions, NETLIST description, and SIMULATION commands.
+
+<img width="614" height="339" alt="Screenshot 2026-02-27 at 9 07 49 PM" src="https://github.com/user-attachments/assets/2e5b09af-6b20-48d0-845a-7cf4ff625c6e" />
+
+## SPICE Netlist Description
+
+**The netlist defines:**
+
+M1: out in vdd vdd pmos W=0.375u L=0.25u
+M2: out in 0 0 nmos W=0.375u L=0.25u
+cload out 0 10f
+Vdd vdd 0 2.5
+Vin in 0 0 pulse 2.5 0 10p 10p 1n 2n
+.tran 10p 4n
+.LIB "tsmc_025um_model.mod" CMOS_MODELS
+The pulse input has: rise/fall time = 10ps, pulse width = 1ns, period = 2ns, Switching between 0 and 2.5V.
+
+## Transient Waveform Output
+
+Running  simulation gives the transient waveform of Vin (input) and Vout (output) over time. The waveform shows the inverter switching behaviour between 0 and 2.5V.
+
+<img width="569" height="359" alt="Screenshot 2026-02-27 at 9 10 01 PM" src="https://github.com/user-attachments/assets/540c4a41-eff8-4231-b4ab-4c2de5582323" />
+
+## VTC Curve and Vm Result
+
+From the simulation, the Voltage Transfer Characteristic (VTC) curve is extracted by plotting Vout vs Vin.
+
+Result for Wp/Lp = Wn/Ln (i.e., x.Wn/Ln = Wn/Ln):
+Vm = 0.99v
+Rise delay = 148ps
+Fall delay = 71ps
+
+The VTC shows the sharp transition at Vm ≈ 0.99v, close to the analytically expected value of ~0.98v.
+
+<img width="641" height="335" alt="Screenshot 2026-02-27 at 9 11 48 PM" src="https://github.com/user-attachments/assets/9c27abc5-58dc-484c-865e-44f7cc533c8a" />
+ 
+ The asymmetry in rise vs fall delay (148ps vs 71ps) is expected because NMOS has higher mobility than PMOS. To equalize the delays, the PMOS needs to be sized larger.
+ 
+---
+# Day 3 part 2 lecture 5
+
+# Static and dynamic simulation of CMOS inverter with increased PMOS width
+
+## Simulation Setup: Pulse Input
+
+For this simulation, the same SPICE netlist is used with the pulse input specification:
+       
+       VDD = 2.5V
+       Pulse: 2.5V → 0V, rise time = 10ps, fall time = 10ps
+       Period = 2ns
+
+<img width="78" height="55" alt="Screenshot 2026-02-27 at 9 17 22 PM" src="https://github.com/user-attachments/assets/d829992f-20ec-4d63-8267-fda655473253" />
+
+## Static Behaviour Evaluation: Varying the Transistor Size Ratio
+
+We now run SPICE simulation for the second case:
+
+SPICE waveform: Wn=0.375, Wp=0.9375u, Ln,p=0.25u device
+(Wn/Ln=1.5, Wp/Lp=3.75)
+
+**The PMOS is sized 2.5× larger than NMOS**.
+
+This shifts the switching threshold Vm towards a higher voltage.
+
+## VTC Result: Vm Shift with Larger PMOS
+
+From the SPICE simulation, the VTC curve shifts compared to the equal sizing case. The switching point moves to the right.
+
+**Result for the 2nd case (Wp/Lp = 3.75):**
+
+Vm = 0.99v → 1.2v (Vm shifts higher when Wp/Lp is increased)
+
+Rise delay and fall delay are now more balanced
+
+The VTC curve confirms the analytical prediction — increasing Wp/Lp pushes Vm toward higher Vin.
+
+
 ---
 
+# Day 3 part 2 lecture 6
+
+# Applications of CMOS inverter in clock network and STA
+
+## Summary of Transistor Sizing Results
+
+From SPICE simulations across different PMOS sizing ratios (keeping Wp/Lp fixed, varying x·Wn/Ln) 
+
+The following table summarises the effects on Rise delay, Fall delay, and Vm:
+
+<img width="418" height="159" alt="Screenshot 2026-02-27 at 9 22 36 PM" src="https://github.com/user-attachments/assets/3c41ef3a-8e49-4a7a-bbea-b5f85105e55f" />
+
+We observe that  The 2·Wn/Ln case gives the most balanced rise/fall delay (80ps vs 76ps), which is ideal for symmetric switching.
+
+<img width="603" height="163" alt="Screenshot 2026-02-27 at 9 23 56 PM" src="https://github.com/user-attachments/assets/96aadc0b-1aaa-4dcd-8e53-ce77bd574e90" />
+
+## Application: Clock Network (H-Tree)
+
+The CMOS inverter is widely used as a clock buffer in H-Tree clock distribution networks. 
+
+The H-Tree structure routes the clock signal symmetrically across a chip, ensuring all flip-flops receive the clock at the same time.
+
+ 
+<img width="660" height="369" alt="Screenshot 2026-02-27 at 9 24 58 PM" src="https://github.com/user-attachments/assets/451c5d2f-9f23-473a-af97-58c99a5e6a3c" />
+
+For the clock buffer:
+
+High-to-low transition delay = D1 (driven by NMOS)
+Low-to-high transition delay = D1 (driven by PMOS)
+
+To make High-to-low and Low-to-high delays equal, the PMOS must be sized larger to compensate for its lower drive strength.
+
+## Application: Static Timing Analysis (STA) – Setup Analysis
+
+The CMOS inverter delay behaviour feeds directly into Static Timing Analysis. The single clock setup analysis considers two flip-flops: Launch Flop and Capture Flop, connected through combinational logic and clock buffers
+
+<img width="649" height="369" alt="Screenshot 2026-02-27 at 9 27 13 PM" src="https://github.com/user-attachments/assets/6b7bb532-464c-4f35-b563-0139fad1c936" />
+
+**Specifications assumed:**
+
+Clock Frequency (F) = 1GHz
+Clock Period (T) = 1/F = 1/1GHz = 1ns
+
+**Timing slack condition:**
+
+SLACK (should be +ve or 0) = Data Required Time − Data Arrival Time
+Which means:
+
+(Θ + Δ₁) < (T + Δ₂ + 3x) − S − SU
+
+Where:
+Θ = clock skew
+Δ₁ = clock network delay to Launch Flop
+Δ₂ = clock network delay to Capture Flop
+S = setup time
+SU = clock uncertainty
+With T = 1ns, and assuming S = 10ps = 0.01ns, Uncertainty = 90ps ≈ 0.09ns.
+The lecture concludes with a preview of the next topic: Noise Margin (NMH and NML), which is the next part of static behaviour evaluation of CMOS inverter robustness.
+
+
+---
 # Day 4 Lecture 1
 
 # Introduction to noise margin
@@ -1644,6 +1962,27 @@ Digital Design criterion requires equal NMh and NMl for symmetric noise immunity
 
 # Smart SPICE simulation for power supply variations
 
+we need to scale the power supply
+
+pmos bigger than nmos
+
+<img width="248" height="185" alt="Screenshot 2026-02-27 at 9 31 51 PM" src="https://github.com/user-attachments/assets/aaa88a55-dc2d-46dc-8b8c-66df2ac62251" />
+
+sweep voltage from 2.5 to 1 v
+
+<img width="628" height="260" alt="Screenshot 2026-02-27 at 9 32 23 PM" src="https://github.com/user-attachments/assets/71bc1328-8d09-4644-899d-dd7c1bfd5f8c" />
+
+## spice netflix we are using 
+
+<img width="515" height="379" alt="Screenshot 2026-02-27 at 9 33 03 PM" src="https://github.com/user-attachments/assets/99ba1051-819d-4759-b325-06e987881d3e" />
+
+<img width="480" height="363" alt="Screenshot 2026-02-27 at 9 34 17 PM" src="https://github.com/user-attachments/assets/e4cbfc6e-67ae-4ac3-804a-c60bbbfaf87e" />
+
+## CURVES obtained
+
+<img width="618" height="368" alt="Screenshot 2026-02-27 at 9 36 06 PM" src="https://github.com/user-attachments/assets/fd51dae6-d95a-40ec-9ae5-29d57684958d" />
+
+
 ---
 
 # DAY 5 PART 1 Lecture 2
@@ -1722,6 +2061,8 @@ P Diff (green): source/drain of PMOS
 N Diff (green, lower): source/drain of NMOS
 Metal (blue): Vdd, Vss, and Out connections
 
+<img width="649" height="297" alt="Screenshot 2026-02-27 at 7 21 20 PM" src="https://github.com/user-attachments/assets/088f0a0a-e38c-4029-8b9d-11d418984f4e" />
+
 ##  Transistor Dimensions: W and L
 
 Each transistor has two critical physical dimensions:
@@ -1730,13 +2071,16 @@ Each transistor has two critical physical dimensions:
 
 **L (Length):** the vertical extent of the poly gate (channel length).
 
+<img width="647" height="299" alt="Screenshot 2026-02-27 at 7 22 25 PM" src="https://github.com/user-attachments/assets/4c538589-8d9a-401a-97ed-5eba55c083b6" />
+
+
 ## Inverter Chain
 
 In a typical digital design, inverters are connected in a chain where output of one drives the input of the next. 
 
 The layout of an inverter chain shows the repeating structure of each inverter cell side by side.
 
-
+<img width="686" height="352" alt="Screenshot 2026-02-27 at 7 23 32 PM" src="https://github.com/user-attachments/assets/71e281d4-6202-4923-a6b1-59bd00132a2f" />
 
 ## Etching Process Variation
 
@@ -1750,19 +2094,23 @@ However, during the actual etching process, the edges of the poly are not perfec
 The actual mask produces an irregular shape at the bottom of the poly ,
 meaning the effective W and L of the fabricated transistor differ from the intended design.
 
+<img width="678" height="348" alt="Screenshot 2026-02-27 at 7 24 15 PM" src="https://github.com/user-attachments/assets/9085d0b0-5629-4f25-aa80-6579ce4e802c" />
+ 
 Because gates in the middle of the inverter chain have the same surrounding structure on both sides, they experience a more uniform etch environment. 
 
 Gates at the ends of the chain, however, are exposed to different conditions on one side, leading to more variation in their dimensions.
 
 ## Impact on Drain Current
 
-The drain current of a MOSFET in the linear (triode) region is given by:\
+The drain current of a MOSFET in the linear (triode) region is given by:
 
 **Id = u Cox (W/L) [(Vgs − Vt)Vds − Vds²/2]**
 
 The term W/L directly appears in this equation.
 
 Any variation in W or L due to the etching process will directly affect the drain current, and therefore the switching characteristics of the inverter.
+
+<img width="579" height="291" alt="Screenshot 2026-02-27 at 7 25 39 PM" src="https://github.com/user-attachments/assets/c1724af4-ca77-47a0-b2c2-90345d7f49f5" />
 
 Since **the W/L ratio is affected by etching variation**, different inverters in a chain – especially the edge cells – will have slightly different current characteristics, leading to mismatch across the circuit.
 
