@@ -1336,6 +1336,7 @@ out — output node (drain junction of M1 and M2)
 ---
 
 # Day 3 part 2 lecture 1
+
 # Switching Threshold, Vm
 
 ## Comparing Two Device Configurations
@@ -1353,9 +1354,13 @@ This is done to match the drive strength of PMOS to NMOS, since the hole mobilit
 
 Comparing both VTC curves:
 
-**Case 1 (Wn/Ln = Wp/Lp = 1.5)** — switching threshold Vm ~ 0.98V, shifted slightly left (towards lower Vin)
+**Case 1 (Wn/Ln = Wp/Lp = 1.5)** 
 
-**Case 2 (Wn/Ln = 1.5, Wp/Lp = 3.75)** — switching threshold Vm ~ 1.2V, shifted towards center (closer to Vdd/2)
+— switching threshold Vm ~ 0.98V, shifted slightly left (towards lower Vin)
+
+**Case 2 (Wn/Ln = 1.5, Wp/Lp = 3.75)**
+
+— switching threshold Vm ~ 1.2V, shifted towards center (closer to Vdd/2)
 
 Increasing Wp shifts the VTC to the right — makes the inverter switch at a higher Vin
 
@@ -1410,3 +1415,149 @@ IdsP = -IdsN — the PMOS and NMOS currents are equal and opposite, confirming t
 Both transistors are in saturation at Vm
 
 This condition (IdsP = -IdsN) is used to analytically derive the expression for Vm in terms of transistor parameters.
+
+---
+
+# Day 3 part 2 lecture 2
+
+---
+
+# Day 4 Lecture 1
+
+# Introduction to noise margin
+
+**Static behavior Evaluation : CMOS inverter Robustness**
+
+An inverter takes a 0/1 as input and produces a 1/0 as output
+
+<img width="187" height="38" alt="Screenshot 2026-02-27 at 4 08 44 PM" src="https://github.com/user-attachments/assets/c32485e2-a218-4a03-aac7-bbb83b43fb8c" />
+
+## Ideal I/O Characteristic of an Inverter
+
+**Ideal inverter**
+
+The output stays at Vdd for all inputs below Vdd/2 value and drops instantly to 0 for inputs above Vdd/2
+
+This gives us a rectangular VTC (Voltage Transfer Characteristic)
+
+<img width="296" height="232" alt="Screenshot 2026-02-27 at 4 09 36 PM" src="https://github.com/user-attachments/assets/a3b7781f-5945-4f80-b0d2-6e5d34cf1e44" />
+
+The transition in the ideal case happens at exactly Vdd/2, and the slope of the VTC at that point is theoretically infinite.
+
+<img width="286" height="220" alt="Screenshot 2026-02-27 at 4 13 16 PM" src="https://github.com/user-attachments/assets/b3ce5a26-5b7f-4738-a087-fef22c5d8710" />
+
+ ## Actual I/O Characteristic of an Inverter
+ 
+In a real inverter, the transition is not perfectly sharp. The slope of the VTC in the transition region is finite, not infinite. ]
+
+This means the inverter output does not instantly snap between Vdd and 0.
+
+<img width="474" height="203" alt="Screenshot 2026-02-27 at 4 16 00 PM" src="https://github.com/user-attachments/assets/a195aad7-8977-4da4-a215-7ccb6974ee4b" />
+
+## Voltage Parameters: VIL and VOL
+
+**VIL– Input Low Voltage**
+
+Since the transition is not instantaneous, we define specific boundary voltages to separate what the circuit treats as logic 0 and logic 1.
+
+VIL is the Input Low Voltage.
+
+Any input voltage level between 0 and VIL will be treated as logic ‘0’.
+
+<img width="479" height="245" alt="Screenshot 2026-02-27 at 4 18 23 PM" src="https://github.com/user-attachments/assets/44a1f3f3-1e27-464a-868c-438dd1e91a3a" />
+
+**VOL – Output Low Voltage**
+
+VOL is the Output Low Voltage.
+
+Any output voltage level between 0 and V₀ₗ will be treated as logic ‘0’.
+
+<img width="453" height="248" alt="Screenshot 2026-02-27 at 4 19 14 PM" src="https://github.com/user-attachments/assets/b72b25ec-1926-4be0-9df9-6d6acb1ad0db" />
+
+---
+
+# Day 4 Lecture 2 
+
+#  Noise margin voltage parameters
+
+## Remaining Voltage Parameters
+
+**Voh – Output High Voltage**
+
+Voh is the Output High Voltage. It is the output level corresponding to the left edge of the transition region. Any output voltage at or above Voh is considered logic ‘1’ by the receiving gate.
+
+**Vlh – Input High Voltage**
+
+Vlh is the Input High Voltage.
+
+It is the input voltage at the right edge of  transition region. Any input voltage above Vlh will be treated as a logic ‘1’.
+
+<img width="491" height="220" alt="Screenshot 2026-02-27 at 4 24 53 PM" src="https://github.com/user-attachments/assets/d48af411-13db-4900-ba8a-7d6e389bb3ab" />
+
+## How VIL and VIH Are Determined
+
+VIL and VIH are not chosen arbitrarily.
+
+They are two specific points on the VTC where the slope equals −1.
+
+**At VIL (lower end of transition)**, the slope of the VTC is −1. 
+
+**At VIH (upper end of transition)**, the slope of the VTC is also −1.
+
+<img width="423" height="209" alt="Screenshot 2026-02-27 at 4 28 07 PM" src="https://github.com/user-attachments/assets/49fa3874-9d84-40c1-aff2-14b63ce97f48" />
+
+---
+# Day 4 Lecture 3
+
+# Noise margin equation and summary
+
+## I/O Characteristic Plotted on Scale
+
+we have all four parameters defined, we plot the actual I/O characteristic to scale and mark VIL, VIH, VOL, and VOH on it.
+
+<img width="419" height="230" alt="Screenshot 2026-02-27 at 4 32 59 PM" src="https://github.com/user-attachments/assets/a8f587ab-f39b-4be5-8e83-0fe6a9ffbc4a" />
+
+## Noise Margin Equations
+
+We define the two noise margins.
+
+**NMₕ – Noise Margin High**
+
+NMh is the gap between Voh and Vih in the high logic region.
+
+**NMh = Voh − Vih**
+
+**NMl – Noise Margin Low**
+
+NMl is the gap between Vil and Vol in the low logic region.
+
+**NMl = Vil − Vol**
+
+<img width="438" height="278" alt="Screenshot 2026-02-27 at 4 36 17 PM" src="https://github.com/user-attachments/assets/5bb7dff9-1299-4eaa-b54a-2c8547c322b0" />
+
+## Undefined Region
+
+The region between Vil and Vih on the x-axis corresponds to  transition region. 
+
+Any signal that falls in this region has indefinite logic level.
+
+Any signal in  Undefined Region will be an indefinite logic level.
+
+<img width="418" height="203" alt="Screenshot 2026-02-27 at 4 38 41 PM" src="https://github.com/user-attachments/assets/037f08b6-0dfb-4176-a94f-10e401046748" />
+
+## Noise Margin Summary
+ 
+What happens to an input signal depending on which noise margin region its voltage bump falls into
+
+a) Bump height lies between Vol and Vil — will be considered as logic ‘0’
+
+b) Bump height lies between Vil and Vih — output logic is undefined
+
+c) Bump height lies between Vih and Voh — will be considered as logic ‘1’
+
+<img width="444" height="312" alt="Screenshot 2026-02-27 at 4 40 07 PM" src="https://github.com/user-attachments/assets/6b371651-e756-43ff-8d63-eb3bd4104d4b" />
+
+For any signal to be considered as logic ‘0’ and logic ‘1’, it should be in the NMₗl and NMh ranges, respectively.
+
+---
+
