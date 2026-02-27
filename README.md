@@ -2220,14 +2220,99 @@ Any variation in W or L due to the etching process will directly affect the drai
 Since **the W/L ratio is affected by etching variation**, different inverters in a chain – especially the edge cells – will have slightly different current characteristics, leading to mismatch across the circuit.
 
 ---
+# Day 5 part 2 Lecture 2
+
+# Sources of variation – oxide thickness
+
+## Crossectional view of transistor
+
+### In Inverter
+
+<img width="671" height="379" alt="Screenshot 2026-02-27 at 10 54 19 PM" src="https://github.com/user-attachments/assets/c87467e0-660c-49d6-af7e-aac102f21583" />
+
+### IN Inverter chain
+
+<img width="419" height="246" alt="Screenshot 2026-02-27 at 10 55 07 PM" src="https://github.com/user-attachments/assets/42212a57-91b4-4ae8-980a-bab222e6c264" />
+
+## In Ideal Oxitation process
+
+Gate oxide thickness remains constant Through out entire channel length
+
+<img width="222" height="303" alt="Screenshot 2026-02-27 at 10 58 41 PM" src="https://github.com/user-attachments/assets/95c2a1c6-f0d1-438e-9008-12585d80a5cc" />
+
+## In reality
+
+Gate oxide is not constant throughout channel due to fab processes
+
+<img width="212" height="84" alt="Screenshot 2026-02-27 at 10 59 48 PM" src="https://github.com/user-attachments/assets/0db6b4cc-2db0-49f6-9685-be91c14475e0" />
+
+Variation in middle transistors is minimium, while the transistors at the end suffers high variation in gate thickness
+
+<img width="498" height="106" alt="Screenshot 2026-02-27 at 11 02 17 PM" src="https://github.com/user-attachments/assets/3a730682-d3a9-4c99-9187-01935208f237" />
+
+More the oxide thickness variation more the drain current 
+
+___
+
 # Day 5 part 2 Lecture 3
+
 # Smart SPICE simulation for device variations
+ 
+## Spice simulation 
+
+To prove CMOS device is least affected by gate thickness 
+
+### START POINT
+
+<img width="229" height="191" alt="Screenshot 2026-02-27 at 11 04 56 PM" src="https://github.com/user-attachments/assets/69a9b638-131b-4b22-bb5d-8301ddf616b9" />
+
+Resistance of NMOS is very high
+
+### END POINT
+
+<img width="226" height="152" alt="Screenshot 2026-02-27 at 11 06 24 PM" src="https://github.com/user-attachments/assets/72756961-4e77-47c8-8083-e74b1e941bbe" />
+
+**Sweep Wp**
+
+<img width="629" height="207" alt="Screenshot 2026-02-27 at 11 07 24 PM" src="https://github.com/user-attachments/assets/f8380702-0f0b-4a6a-817d-93aba5d26dc8" />
+
+# SPICE netplix
+
+<img width="552" height="389" alt="Screenshot 2026-02-27 at 11 09 07 PM" src="https://github.com/user-attachments/assets/4d1b860b-95ba-4b26-a4b1-af34f98c70aa" />
+
+<img width="628" height="387" alt="Screenshot 2026-02-27 at 11 08 36 PM" src="https://github.com/user-attachments/assets/4b49d289-6ba0-44b0-8088-2d95b813e9cc" />
+
+## Curves obtained from ngspice
+
+ <img width="536" height="368" alt="Screenshot 2026-02-27 at 11 10 39 PM" src="https://github.com/user-attachments/assets/323ddfdf-f77a-4b32-bf1e-e31cbd4662c6" />
 
 
 ---
 # Day 5 part 2 Lecture 4
+
 # Conclusion
 
+## To prove cmos is reobust o the changes occuring in surroundings
+
+Two parameters considered are Noise margin , Switiching threshold point
+
+### Switiching threshold variation
+
+<img width="526" height="321" alt="Screenshot 2026-02-27 at 11 14 48 PM" src="https://github.com/user-attachments/assets/f8a162e8-2494-48b8-b591-4fade2358888" />
+
+shift was fairly acceptable
+
+### Noise Margin variation
+
+<img width="555" height="344" alt="Screenshot 2026-02-27 at 11 16 29 PM" src="https://github.com/user-attachments/assets/16f5693b-0b8a-43bc-aeb5-e46911dc1f4c" />
+
+it easy to filter out noises as the variation in Noise margin is low 
+
+So we can say that
+
+CMOS WILL BE INTACT AND can be a help in building all kind of gates
+
+<img width="376" height="149" alt="Screenshot 2026-02-27 at 11 18 12 PM" src="https://github.com/user-attachments/assets/b9b5271d-18ec-4cb5-bdb0-57f41b7f1194" />
 
 ---
 # Day 5 part 2 Lecture 5
