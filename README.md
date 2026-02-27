@@ -932,3 +932,212 @@ Velocity saturation cause device to saturate early so we observe peak current di
 <img width="690" height="341" alt="Screenshot 2026-02-27 at 1 27 27 AM" src="https://github.com/user-attachments/assets/452fbdfb-afb0-4b77-93a7-32c9d06e6084" />
 
 ---
+
+# Day 2 Part 2 Lecture 1
+# MOSFET as a switch
+
+## CMOS Voltage-Transfer Characteristics (VTC)
+
+The Voltage-Transfer Characteristic (VTC) describes how the output voltage of CMOS inverter responds to changes in input voltage .
+
+## MOS Transistor
+
+MOS transistor has three terminals: Gate (G) Source (S) , and Drain (D)
+
+<img width="332" height="250" alt="Screenshot 2026-02-27 at 9 36 49 AM" src="https://github.com/user-attachments/assets/ac1d0f5e-1cf1-4c39-be86-a19a831315b4" />
+
+When the gate-to-source voltage |Vgs| is applied, it is shown by arrows indicating the voltage direction between gate and source. The gate voltage controls whether current can flow between Source and Drain
+
+<img width="540" height="222" alt="Screenshot 2026-02-27 at 9 38 13 AM" src="https://github.com/user-attachments/assets/71b090db-78c0-401b-9f0e-10ece67d0552" />
+
+## Transistor as a Switch
+
+Depending on the gate voltage relative to the threshold voltage (Vt) , the transistor either opens or closes the channel between Source and Drain
+
+The switch has the following two operating conditions:
+
+1.With infinite OFF resistance when |Vgs| < |Vt| — no current flows, switch is open.
+
+2. With finite ON resistance when |Vgs| > |Vt| — channel is formed, current flows, switch is closed.
+
+<img width="572" height="296" alt="Screenshot 2026-02-27 at 9 40 59 AM" src="https://github.com/user-attachments/assets/ff36258c-1213-45eb-8022-3e4162de5c71" />
+
+**Observations**
+
+1. When |Vgs| > |Vt|, the transistor is in the ON state and behaves like a resistor  between source and drain.
+
+2. When |Vgs| < |Vt|, the transistor is OFF and acts like an open circuit — no conducting path exists from source to drain.
+
+<img width="542" height="284" alt="Screenshot 2026-02-27 at 9 43 19 AM" src="https://github.com/user-attachments/assets/df046c49-cc23-4f91-b848-9c37d65c7b84" />
+
+## CMOS Inverter with Load Capacitance
+
+The CMOS inverter is formed by connecting one PMOS transistor and one NMOS transistor in a complementary arrangement
+
+**Connection**
+
+1. The gate terminals of both transistors are tied together and receive the input voltage Vin.
+ 
+2. The drain terminals of both transistors are tied together and give the output voltage Vout.
+
+3. A load capacitance CL is connected at the output node.
+  
+<img width="274" height="243" alt="Screenshot 2026-02-27 at 9 48 28 AM" src="https://github.com/user-attachments/assets/579a53c6-39c2-42fe-8e32-c46fa053debd" />
+
+4. The supply voltage Vdd is connected to the Source of the PMOS transistor.
+
+5. The Source of the NMOS transistor is connected to ground.
+
+## Case : Vin is HIGH and equal to Vdd
+
+### Vin = Vdd: Transistor States and Output
+
+NMOS transistor determines the circuit behaviour at the output node
+
+<img width="678" height="397" alt="Screenshot 2026-02-27 at 9 56 33 AM" src="https://github.com/user-attachments/assets/aaf7925a-576c-4647-ab21-c2541a8bf0e1" />
+
+
+**observations**
+
+PMOS turns OFF because (VgsP) = 0 < (VtP). The PMOS behaves like an open circuit there is no conducting path from Vdd to Vout through the PMOS side
+
+NMOS turns ON because (VgsN) = (Vdd) > (Vtn). The NMOS behaves like a resistance Rn connected between Vout and Vss.
+
+The load capacitance CL discharges through Rn to ground.
+
+A direct conducting path exists between Vout and Vss because of Rn.
+
+Because the only path at the output connects Vout to Vss is through Rn, the output voltage in steady state will be pulled down to Vss = 0.
+
+---
+
+# Day 2 Part 2 Lecture 2 
+
+# Introduction to standard MOS voltage current parameters
+
+## CMOS Inverter – Switching Analysis
+
+### Equivalent Circuit for Vin = Vdd
+
+The equivalent circuit for Vin = Vdd shows the PMOS is replaced by an open switch and the NMOS is replaced by resistance Rn.
+The output node is connected with Vss through Rn and has the load capacitance CL in parallel.
+
+<img width="673" height="346" alt="Screenshot 2026-02-27 at 10 09 03 AM" src="https://github.com/user-attachments/assets/3990af4f-4d6f-4bf4-971f-9aae723a73d3" />
+
+
+**Observations**
+
+From the equivalent circuit we observe :
+1.When Vin = Vdd, direct path exists between Vout and Vss through NMOS resistance Rn.
+2. This results in Vout = 0 are observed in steady state 
+
+3. The CL discharges through Rn during falling output transition.
+
+<img width="670" height="376" alt="Screenshot 2026-02-27 at 10 13 13 AM" src="https://github.com/user-attachments/assets/a9eff3d8-baac-4a51-a44d-4ebcd3c70526" />
+
+## Case 2: Vin is LOW and equal to 0 V
+
+<img width="569" height="392" alt="Screenshot 2026-02-27 at 10 16 05 AM" src="https://github.com/user-attachments/assets/52b9b12a-098f-4385-934a-0e1669aa031d" />
+
+PMOS turns ON acts as resistance Rp between Vdd and Vout
+NMOS turns OFF acts as an open circuit between Vout and Vss
+
+ ### Equivalent Circuit for Vin = 0
+
+NMOS replaced by open switch and the PMOS replaced by resistance Rp. Output node is connected to Vdd through Rp and has load capacitance CL at the output.
+
+<img width="689" height="391" alt="Screenshot 2026-02-27 at 10 17 28 AM" src="https://github.com/user-attachments/assets/26dce764-794b-4234-9581-b5acef071455" /> 
+
+From observation of the equivalent circuits,currents flowing through PMOS (IdsP) and NMOS (IdsN) must be equal and opposite since they share same drain node. Therefore IdsP = -IdsN.
+
+---
+### comparing both equivalent circuits 
+
+Both equivalent circuits placed side by side 
+
+<img width="688" height="310" alt="Screenshot 2026-02-27 at 10 19 53 AM" src="https://github.com/user-attachments/assets/5ebdb8b1-a28e-448f-96e8-0dc47052cdf3" />
+
+## PMOS and NMOS Terminal Labels
+
+<img width="679" height="371" alt="Screenshot 2026-02-27 at 10 25 42 AM" src="https://github.com/user-attachments/assets/e0ff4be1-e6e9-4f72-bce6-312e30dc5105" />
+
+## Voltages and Currents in the Circuit
+ From observation of the CMOS inverter circuit, the terminal voltages for NMOS and   PMOS are:
+
+ VgsN = Vin - Vss = Vin
+ VdsN = Vout
+ VgsP = Vin - Vdd
+ VdsP = Vout - Vdd
+
+ ---
+# Day 2 Part 2 Lecture 3
+
+# PMOS/NMOS drain current v/s drain voltage
+
+<img width="663" height="289" alt="Screenshot 2026-02-27 at 10 31 55 AM" src="https://github.com/user-attachments/assets/58900d5b-6d2f-45cc-ad08-42eacc737264" />
+The two reference equivalent circuits show:
+
+When Vin = Vdd → Vout = 0 (NMOS conducting through Rn, PMOS open);
+
+When Vin = 0 → Vout = Vdd (PMOS conducting through Rp, NMOS open).
+
+## Deriving the NMOS Terminal Voltages
+
+VgsN = Vin - Vss = Vin - 0 = Vin
+
+VdsN = Vout - Vss = Vout - 0 = Vout
+
+<img width="666" height="367" alt="Screenshot 2026-02-27 at 10 33 22 AM" src="https://github.com/user-attachments/assets/c6c04b87-0c3d-4855-b2d5-1bbac4c7715a" />
+
+for the NMOS transistor, the gate-to-source voltage equals to the input voltage directly, and the drain-to-source voltage equals to the output voltage directly
+
+## Deriving the PMOS Terminal Voltages
+
+VgsP = Vin - Vdd
+VdsP = Vout - Vdd
+
+Vin ranges from 0 to Vdd, VgsP will be negative quantity (from -Vdd to 0), which is consistent with PMOS operation. 
+
+Similarly VdsP will be a negative when Vout is less than Vdd, which is also consistent with PMOS operation
+
+<img width="661" height="377" alt="Screenshot 2026-02-27 at 10 36 26 AM" src="https://github.com/user-attachments/assets/c141d450-9ebd-4c57-8e2d-bca7bdffa1bf" />
+
+## Relationship Between PMOS and NMOS Currents
+
+IdsP = -IdsN
+
+## NMOS IdsN vs VdsN Curve
+
+Each curve shows two regions:
+
+Linear region — for small VdsN, IdsN increases approximately linearly with VdsN.
+
+Saturation region — for larger VdsN, IdsN levels off and becomes approximately constant 
+
+<img width="285" height="248" alt="Screenshot 2026-02-27 at 10 42 25 AM" src="https://github.com/user-attachments/assets/f13a2217-8535-4a0a-ac70-c25ff6936b37" />
+
+
+**Observation**
+
+The higher the gate voltage (VgsN), the larger the drain current for same drain voltage. The curves start at  origin and the saturation level increases with VgsN.
+
+## PMOS IdsP vs VdsP Curve
+
+<img width="214" height="274" alt="Screenshot 2026-02-27 at 10 43 16 AM" src="https://github.com/user-attachments/assets/2f966621-adb2-4718-99cb-1bb783aca315" />
+
+Just like the NMOS, the PMOS also shows  family of curves for different gate-to-source voltages VgsP1 through VgsP5 (labelled as negative values -VgsP1 to -VgsP5). A more negative VgsP results in a larger magnitude of drain current.
+
+## Comparing Both NMOS and PMOS Curves
+
+<img width="466" height="257" alt="Screenshot 2026-02-27 at 10 44 31 AM" src="https://github.com/user-attachments/assets/b674950b-ff33-4f1f-b8b5-efa410c3d577" />
+
+**Observations**
+
+NMOS curves are in first quadrant — positive VdsN and positive IdsN
+
+PMOS curves are in third quadrant — negative VdsP and negative IdsP
+
+Higher |VgsN| gives higher IdsN value for NMOS; higher |VgsP| gives higher |IdsP| for PMOS .
+
+---
+
