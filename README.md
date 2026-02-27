@@ -1639,3 +1639,132 @@ Digital Design criterion requires equal NMh and NMl for symmetric noise immunity
 <img width="643" height="331" alt="Screenshot 2026-02-27 at 5 06 23 PM" src="https://github.com/user-attachments/assets/030582c4-c21d-4b37-aebb-1859cbac76ce" />
 
 ---
+
+# DAY 5 PART 1 Lecture 1
+
+# Smart SPICE simulation for power supply variations
+
+---
+
+# DAY 5 PART 1 Lecture 2
+
+# Advantages and disadvantages using low supply voltage
+
+**1. SPICE Simulation:** VTC at Multiple Supply Voltages
+
+A SPICE simulation is run for five different supply voltages (dc1 through dc5) plotted in single graph.
+**The output voltage vs. input voltage characteristics**are shown for each supply voltage case.
+
+<img width="614" height="333" alt="Screenshot 2026-02-27 at 6 37 15 PM" src="https://github.com/user-attachments/assets/5baaf7e4-6b82-48fd-853f-516522adb559" />
+
+The slope of the tangent line to the VTC represents the gain (|gain|) of the inverter. 
+
+The steeper the transition, the higher the gain. 
+
+The dashed line in the simulation indicates the tangent used to measure the gain.
+
+## 2.Effect of Low Supply Voltage on Gain
+
+At the lowest supply voltage (dc5 = 0.5V),
+**the gain |gain| = 11.53.**
+
+Compared to the higher supply voltage cases, this represents a 56% improvement in gain.
+
+<img width="623" height="282" alt="Screenshot 2026-02-27 at 6 38 15 PM" src="https://github.com/user-attachments/assets/7f7d5168-9d9a-4f0a-8498-e176eecd5cbe" />
+
+ ## 3. Effect of Low Supply Voltage on Energy
+ 
+Dynamic power dissipation in a CMOS circuit is governed by the energy formula:
+
+**Energy = ½ CV²**
+
+At a supply voltage of 0.5V:
+
+Energy = ½ C (0.5)²
+
+This results in a 96% energy reduction compared to the 2.5V case. The energy savings are significant because the energy scales with the square of the supply voltage.
+
+<img width="661" height="329" alt="Screenshot 2026-02-27 at 6 40 51 PM" src="https://github.com/user-attachments/assets/0d834608-9f6f-4539-9e2f-b7959669cecb" />
+
+### Advantages
+
+<img width="409" height="131" alt="Screenshot 2026-02-27 at 6 41 24 PM" src="https://github.com/user-attachments/assets/e9682833-9260-4610-8bf1-c72df230e8b1" />
+
+## 4. Effect of Low Supply Voltage on Rise Delay and Fall Delay
+
+Reducing the supply voltage also affects dynamic (transient) behaviour of the inverter, specifically the rise delay and fall delay. 
+
+The transient simulation at the lowest supply voltage (0.5V) shows that the output
+response is slower.
+
+<img width="633" height="327" alt="Screenshot 2026-02-27 at 6 43 06 PM" src="https://github.com/user-attachments/assets/dd25ecd5-d67f-4b17-bfd4-3262f042d375" />
+
+This performance degradation is a key disadvantage of using a low supply voltage.
+
+### Disadvantages
+
+Performance impact (rise delay, fall delay increase)
+
+---
+
+# Day 5 part 2 Lecture 1
+
+# Sources of variation – Etching process
+
+## Single Inverter
+
+A single CMOS inverter consists of a PMOS transistor connected to Vdd and an NMOS transistor connected to Vss.
+
+**In the schematic** , the Poly Gate is the shared input to both PMOS (P Diff) and NMOS (N Diff). In the layout, the layers are:
+
+Poly (red): gate layer
+P Diff (green): source/drain of PMOS
+N Diff (green, lower): source/drain of NMOS
+Metal (blue): Vdd, Vss, and Out connections
+
+##  Transistor Dimensions: W and L
+
+Each transistor has two critical physical dimensions:
+
+**W (Width):** the horizontal extent of the diffusion region at the gate.
+
+**L (Length):** the vertical extent of the poly gate (channel length).
+
+## Inverter Chain
+
+In a typical digital design, inverters are connected in a chain where output of one drives the input of the next. 
+
+The layout of an inverter chain shows the repeating structure of each inverter cell side by side.
+
+
+
+## Etching Process Variation
+
+During fabrication, the Poly gate layer is defined using a lithographic mask. 
+
+In an ideal case, the mask produces a perfectly rectangular poly shape with well-defined W and L. 
+
+However, during the actual etching process, the edges of the poly are not perfectly smooth  
+**this is the etching process variation.**
+
+The actual mask produces an irregular shape at the bottom of the poly ,
+meaning the effective W and L of the fabricated transistor differ from the intended design.
+
+Because gates in the middle of the inverter chain have the same surrounding structure on both sides, they experience a more uniform etch environment. 
+
+Gates at the ends of the chain, however, are exposed to different conditions on one side, leading to more variation in their dimensions.
+
+## Impact on Drain Current
+
+The drain current of a MOSFET in the linear (triode) region is given by:\
+
+**Id = u Cox (W/L) [(Vgs − Vt)Vds − Vds²/2]**
+
+The term W/L directly appears in this equation.
+
+Any variation in W or L due to the etching process will directly affect the drain current, and therefore the switching characteristics of the inverter.
+
+Since **the W/L ratio is affected by etching variation**, different inverters in a chain – especially the edge cells – will have slightly different current characteristics, leading to mismatch across the circuit.
+
+---
+
