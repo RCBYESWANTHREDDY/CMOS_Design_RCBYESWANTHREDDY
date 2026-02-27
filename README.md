@@ -1141,3 +1141,93 @@ Higher |VgsN| gives higher IdsN value for NMOS; higher |VgsP| gives higher |IdsP
 
 ---
 
+# Day 2 Part 2 Lecture 4
+# Step1 – Convert PMOS gate-source-voltage to Vin
+
+## SPICE Simulation for Lower Nodes
+
+By Observation:
+
+VgsN = Vin – Vss = 'Vin'
+VdsN = 'Vout'
+VgsP = 'Vin – Vdd'
+VdsP = 'Vout – Vdd'
+IdsP = -IdsN
+
+<img width="696" height="367" alt="Screenshot 2026-02-27 at 11 06 12 AM" src="https://github.com/user-attachments/assets/e7df02ba-4803-4003-a0a1-2f17fb68ef07" />
+
+Let us assume the following values with Vdd = 2V:
+
+<img width="231" height="183" alt="Screenshot 2026-02-27 at 11 08 37 AM" src="https://github.com/user-attachments/assets/4eb96417-36be-4479-abbe-398b246c4a10" />
+
+we get vin from (Vin = Vgsp + Vdd):
+
+<img width="260" height="186" alt="Screenshot 2026-02-27 at 11 10 18 AM" src="https://github.com/user-attachments/assets/6d784ebd-ebbb-409e-81ce-bb37a8f9b2a9" />
+
+Since IdsP = -IdsN, the PMOS current curve is mirrored.
+This is used to convert the PMOS Ids vs Vds curve to a form expressed in terms of Vin
+
+<img width="417" height="173" alt="Screenshot 2026-02-27 at 11 12 57 AM" src="https://github.com/user-attachments/assets/c50df693-5840-4a18-897c-4a50e9ecc32f" />
+
+<img width="464" height="378" alt="Screenshot 2026-02-27 at 11 14 05 AM" src="https://github.com/user-attachments/assets/8ee38f5d-16fa-480f-b673-ab8defc46871" />
+
+used to convert the PMOS Ids vs Vds curve to a form expressed in terms of Vin
+
+**Observations**
+
+After conversion:
+ When Vin = 0 → highest PMOS current curve
+ 
+ When Vin = 0.5 → next curve
+ 
+ When Vin = 1 → middle curve
+ 
+ When Vin = 1.5 → lower curve
+ 
+ When Vin = 2 → lowest PMOS current curve
+
+---
+#  Day 2 Part 2 Lecture 5
+#  Step2 & Step3 – Convert PMOS and NMOS drain-source-voltage to vout
+
+## Convert PMOS and NMOS Drain-Source Voltage to Vout
+
+The PMOS IdsP Vs VdsP curve needs to be re-expressed in terms of Vout.
+
+Step 2 — Convert VdsP to Vout
+
+VdsP = Vout – Vdd. So the x-axis of the PMOS curve transforms as: Vout = Vdd + VdsP
+
+<img width="538" height="227" alt="Screenshot 2026-02-27 at 11 24 01 AM" src="https://github.com/user-attachments/assets/471d2661-898a-45c6-be0c-350def9a139e" />
+
+we replace -VdsP on x-axis with Vout using Vout = Vdd + VdsP. 
+
+The result is the Load Curve for PMOS transistor plotted against Vout.
+
+Step 3 — Obtain Load Curve for NMOS Transistor
+
+To get the NMOS load curve, we use the equations and the NMOS IdsN Vs VdsN curve.
+
+VdsN = 'Vout' — so x-axis is directly Vout
+
+VgsN = Vin — so each curve corresponds to a specific Vin value
+
+<img width="699" height="252" alt="Screenshot 2026-02-27 at 11 48 56 AM" src="https://github.com/user-attachments/assets/f2bcef90-f547-423a-9563-81064d7ec1b1" />
+
+After applying the transformation Vout = Vdd + VdsP to PMOS curve, both NMOS and PMOS load curves are now expressed in terms of Vout on x-axis.
+
+<img width="704" height="389" alt="Screenshot 2026-02-27 at 11 53 06 AM" src="https://github.com/user-attachments/assets/ffd194e4-c4d3-4536-bf8d-02f2cf30d3c6" />
+
+The NMOS IdsN Vs VdsN curve is used directly — VdsN = Vout so it is already in terms of Vout
+
+<img width="686" height="246" alt="Screenshot 2026-02-27 at 11 55 19 AM" src="https://github.com/user-attachments/assets/ae77dc54-b475-4c9a-a23a-2c88a53aa1e9" />
+
+---
+
+# Day 2 Part 2 Lecture 6
+
+# Step4 – Merge PMOS – NMOS load curves and plot VTC
+
+## Superimposing the Load Curves
+
+
