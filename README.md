@@ -791,7 +791,21 @@ This is done to calculate drian current at different values of Vgs
 
 ---
 # Day 1 Part 3 Lecture 4
+
 # First SPICE simulation
+
+<img width="791" height="445" alt="Screenshot 2026-02-27 at 9 40 57 PM" src="https://github.com/user-attachments/assets/ee8faa78-0797-45df-aa53-7a7edf997ca4" />
+
+<img width="800" height="624" alt="Screenshot 2026-02-27 at 9 41 10 PM" src="https://github.com/user-attachments/assets/8d72c18f-f773-439c-b816-43015b411a60" />
+
+---
+# Day 1 Part 3 Lecture 5
+
+#  SPICE Lab with sky130 models
+
+<img width="796" height="474" alt="Screenshot 2026-02-27 at 9 41 31 PM" src="https://github.com/user-attachments/assets/e3de508b-e1c5-40cf-aae6-25ae3a598e1e" />
+
+<img width="798" height="558" alt="Screenshot 2026-02-27 at 9 41 22 PM" src="https://github.com/user-attachments/assets/50b00378-47ad-4adb-b51b-aa2fff54ac2b" />
 
 
 ---
@@ -932,11 +946,20 @@ Velocity saturation cause device to saturate early so we observe peak current di
 ---
 # Day 2 Part 1 Lecture 5
 
+# Labs Sky130 Id-Vgs
+
+<img width="1337" height="743" alt="Screenshot 2026-02-27 at 7 39 28 PM" src="https://github.com/user-attachments/assets/2bc0478b-35cf-47ac-89ae-6397c4102cf4" />
+
+---
 
 # Day 2 Part 2 Lecture 6
 
+# Labs Sky130 Vt
 
-----
+<img width="800" height="456" alt="Screenshot 2026-02-27 at 7 43 15 PM" src="https://github.com/user-attachments/assets/8808edd1-77cf-4a02-aadc-5c74135aa605" />
+
+---
+
 # Day 2 Part 2 Lecture 1
 
 # MOSFET as a switch
@@ -1431,7 +1454,18 @@ This directly shows the impact of transistor sizing on the VTC and switching thr
 ---
 # Day 3 part 1 lecture 3
 
+#  Labs Sky130 SPICE simulation for CMOS
+
+<img width="796" height="454" alt="Screenshot 2026-02-27 at 9 57 21 PM" src="https://github.com/user-attachments/assets/9570b37d-04a9-480d-b684-d87f2f727475" />
+
+<img width="757" height="378" alt="Screenshot 2026-02-27 at 10 01 07 PM" src="https://github.com/user-attachments/assets/b49ec801-f151-4b57-a6e6-e0a1e82526fa" />
+
+<img width="797" height="430" alt="Screenshot 2026-02-27 at 10 01 38 PM" src="https://github.com/user-attachments/assets/53bb58e4-881a-44c9-9777-5d1cdac9f51b" />
+
+<img width="773" height="410" alt="Screenshot 2026-02-27 at 10 01 55 PM" src="https://github.com/user-attachments/assets/5b9a3132-f604-4446-818a-7c922a7b0afe" />
+
 ---
+
 # Day 3 part 2 lecture 1
 
 # Switching Threshold, Vm
@@ -1957,6 +1991,16 @@ Digital Design criterion requires equal NMh and NMl for symmetric noise immunity
 
 ---
 
+# Day 4 Lecture 5
+
+# sky130 Noise margin labs
+
+<img width="800" height="452" alt="Screenshot 2026-02-27 at 10 05 52 PM" src="https://github.com/user-attachments/assets/2cdb2880-1efc-424f-b2a8-0b5ef6dd21f5" />
+
+<img width="799" height="454" alt="Screenshot 2026-02-27 at 10 06 06 PM" src="https://github.com/user-attachments/assets/2515798f-420d-43f6-bf1c-4fff88a0c2a5" />
+
+
+---
 # DAY 5 PART 1 Lecture 1
 
 # Smart SPICE simulation for power supply variations
@@ -2044,7 +2088,15 @@ This performance degradation is a key disadvantage of using a low supply voltage
 Performance impact (rise delay, fall delay increase)
 
 ---
+# Day 5 part 1 Lecture 3
 
+# Sky130 Supply Variation Labs
+
+<img width="797" height="452" alt="Screenshot 2026-02-27 at 10 08 50 PM" src="https://github.com/user-attachments/assets/61946fe0-e559-482c-9aa0-afb9a081ab92" />
+
+<img width="798" height="457" alt="Screenshot 2026-02-27 at 10 09 40 PM" src="https://github.com/user-attachments/assets/83ff5709-3489-402c-99de-d2891baab1fd" />
+
+---
 # Day 5 part 2 Lecture 1
 
 # Sources of variation – Etching process
@@ -2114,4 +2166,22 @@ Any variation in W or L due to the etching process will directly affect the drai
 Since **the W/L ratio is affected by etching variation**, different inverters in a chain – especially the edge cells – will have slightly different current characteristics, leading to mismatch across the circuit.
 
 ---
+# Day 5 part 2 Lecture 3
+# Smart SPICE simulation for device variations
+
+
+---
+# Day 5 part 2 Lecture 4
+# Conclusion
+
+
+---
+# Day 5 part 2 Lecture 5
+
+# Sky130 Device Variation Labs
+
+
+<img width="800" height="450" alt="Screenshot 2026-02-27 at 10 13 42 PM" src="https://github.com/user-attachments/assets/722eab2e-82e4-4de0-91a4-820d44f8a9c8" />
+
+<img width="796" height="452" alt="Screenshot 2026-02-27 at 10 13 52 PM" src="https://github.com/user-attachments/assets/654e8c9d-40c2-44ca-a293-c7e1a665b6bb" />
 
