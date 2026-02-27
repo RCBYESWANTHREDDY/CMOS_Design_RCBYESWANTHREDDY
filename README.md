@@ -2032,7 +2032,7 @@ sweep voltage from 2.5 to 1 v
 
 # Advantages and disadvantages using low supply voltage
 
-**1. SPICE Simulation:** VTC at Multiple Supply Voltages
+## **1. SPICE Simulation:** VTC at Multiple Supply Voltages
 
 A SPICE simulation is run for five different supply voltages (dc1 through dc5) plotted in single graph.
 **The output voltage vs. input voltage characteristics**are shown for each supply voltage case.
